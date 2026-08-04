@@ -1,0 +1,12 @@
+:root {
+	--color-background: #ffffff;
+	--color-surface: #eef7f5;
+	--color-text: #172a2a;
+	--color-muted: #647174;
+	--color-border: #d1e2df;
+	--color-primary: #007c89;
+	--color-accent: #e0a11b;
+	--color-hero-background: #e8f5f4;
+	--color-hero-text: #113335;
+	--radius: 8px;
+}
