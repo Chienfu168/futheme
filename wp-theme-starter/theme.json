@@ -7,6 +7,33 @@
 			"contentSize": "780px",
 			"wideSize": "1120px"
 		},
+		"spacing": {
+			"spacingScale": {
+				"steps": 0
+			},
+			"spacingSizes": [
+				{
+					"name": "Small",
+					"slug": "small",
+					"size": "1rem"
+				},
+				{
+					"name": "Medium",
+					"slug": "medium",
+					"size": "1.5rem"
+				},
+				{
+					"name": "Large",
+					"slug": "large",
+					"size": "2.5rem"
+				},
+				{
+					"name": "Section",
+					"slug": "section",
+					"size": "4rem"
+				}
+			]
+		},
 		"color": {
 			"palette": [
 				{
@@ -32,11 +59,34 @@
 			]
 		},
 		"typography": {
+			"fluid": true,
 			"fontFamilies": [
 				{
 					"name": "System Sans",
 					"slug": "system-sans",
 					"fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif"
+				}
+			],
+			"fontSizes": [
+				{
+					"name": "Small",
+					"slug": "small",
+					"size": "0.875rem"
+				},
+				{
+					"name": "Base",
+					"slug": "base",
+					"size": "1rem"
+				},
+				{
+					"name": "Large",
+					"slug": "large",
+					"size": "1.25rem"
+				},
+				{
+					"name": "Heading",
+					"slug": "heading",
+					"size": "2rem"
 				}
 			]
 		}
@@ -49,6 +99,33 @@
 		"typography": {
 			"fontFamily": "var(--wp--preset--font-family--system-sans)",
 			"lineHeight": "1.7"
+		},
+		"elements": {
+			"button": {
+				"border": {
+					"radius": "8px"
+				},
+				"color": {
+					"background": "#176b5c",
+					"text": "#ffffff"
+				},
+				"spacing": {
+					"padding": {
+						"bottom": "0.75rem",
+						"left": "1rem",
+						"right": "1rem",
+						"top": "0.75rem"
+					}
+				}
+			},
+			"link": {
+				"color": {
+					"text": "#176b5c"
+				},
+				"typography": {
+					"textDecoration": "underline"
+				}
+			}
 		}
 	}
 }
