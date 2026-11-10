@@ -23,4 +23,8 @@
 
 首輪目標 WordPress 7.1.4；不宣稱向下相容。實作前再次確認官方修補版與 PHP 要求。UR 原有 Sydney 優化工作不因本專案而自動變更。
 
-下一步：需求已於 2026-11-10 確認（見 docs/requirements.md），但**開工前要先釐清與 WP_Themes 的界線**——兩套共用佈景並存會讓「共用」失去意義。UR 隔離副本及 UR AI Assistant 原始碼尚未取得；GitHub 遠端與正式部署均未建立。
+儲存庫：[Chienfu168/futheme](https://github.com/Chienfu168/futheme)（私人）。
+2026-11-10 由 `WP_Themes` 改名接手——舊的傳統 PHP 骨架沒有網站在用，也做不到「配色後台切換」，
+已移除並留在 git 歷史（`b58ca3b`）。共用佈景只有一套，不開第二個 repo。
+
+下一步是 M1：做出可安裝的 Block Theme 原型。UR 隔離副本及 UR AI Assistant 原始碼尚未取得（M2 依賴）；正式部署未建立。
