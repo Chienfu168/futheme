@@ -4,7 +4,8 @@
  * 管理員密碼每次隨機產生，只寫入 .wp-test/admin-password（已列入 .gitignore）。
  */
 $site = $argv[1];
-$_SERVER['HTTP_HOST'] = 'localhost:8890';
+$port = getenv( 'FUTHEME_PORT' ) ?: '8890';
+$_SERVER['HTTP_HOST'] = "localhost:$port";
 $_SERVER['REQUEST_URI'] = '/';
 define( 'WP_INSTALLING', true );
 require $site . '/wp-load.php';
@@ -14,8 +15,8 @@ if ( ! is_blog_installed() ) {
 	$password = bin2hex( random_bytes( 12 ) );
 	wp_install( 'FuTheme 測試站', 'admin', 'admin@example.test', false, '', $password );
 	file_put_contents( dirname( $site ) . '/admin-password', $password . "\n" );
-	update_option( 'siteurl', 'http://localhost:8890' );
-	update_option( 'home', 'http://localhost:8890' );
+	update_option( 'siteurl', "http://localhost:$port" );
+	update_option( 'home', "http://localhost:$port" );
 	update_option( 'permalink_structure', '/%postname%/' );
 	update_option( 'WPLANG', '' );
 }

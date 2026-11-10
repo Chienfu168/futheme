@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<ruleset name="FuTheme">
+	<description>FuTheme Core 的 WordPress Coding Standards 設定。</description>
+	<file>themes/futheme-core</file>
+	<arg name="extensions" value="php"/>
+	<arg value="sp"/>
+	<rule ref="WordPress"/>
+	<config name="minimum_wp_version" value="7.1"/>
+	<config name="testVersion" value="7.4-"/>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array">
+				<element value="futheme-core"/>
+			</property>
+		</properties>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array">
+				<element value="futheme"/>
+			</property>
+		</properties>
+	</rule>
+	<!-- Pattern 檔名使用連字號，為 WordPress 慣例。 -->
+	<rule ref="WordPress.Files.FileName">
+		<exclude-pattern>themes/futheme-core/patterns/*</exclude-pattern>
+	</rule>
+</ruleset>

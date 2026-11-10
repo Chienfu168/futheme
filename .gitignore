@@ -10,3 +10,4 @@ build/
 
 # 本機 WordPress 測試站（tests/env/setup.sh 產生）
 .wp-test/
+.wp-test-clean/

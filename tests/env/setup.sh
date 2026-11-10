@@ -25,7 +25,7 @@ if [[ ! -f "$WP_DIR/site/wp-load.php" ]]; then
   unzip -q "$szip" -d "$WP_DIR/site/wp-content/plugins"
   cp "$WP_DIR/site/wp-content/plugins/sqlite-database-integration/db.copy" "$WP_DIR/site/wp-content/db.php"
 fi
-ln -sfn "$ROOT/themes/futheme-core" "$WP_DIR/site/wp-content/themes/futheme-core"
+if [[ "${FUTHEME_LINK_THEME:-1}" == "1" ]]; then ln -sfn "$ROOT/themes/futheme-core" "$WP_DIR/site/wp-content/themes/futheme-core"; fi
 
 if [[ ! -f "$WP_DIR/site/wp-config.php" ]]; then
   php -r '

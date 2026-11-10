@@ -4,10 +4,12 @@
  * 用法：php tests/env/seed.php .wp-test/site
  */
 $site = $argv[1];
-$_SERVER['HTTP_HOST'] = 'localhost:8890';
+$_SERVER['HTTP_HOST'] = 'localhost:' . ( getenv( 'FUTHEME_PORT' ) ?: '8890' );
 require $site . '/wp-load.php';
 require_once ABSPATH . 'wp-admin/includes/image.php';
 require_once ABSPATH . 'wp-admin/includes/taxonomy.php';
+// 以管理員身分寫入，否則 kses 會移除測試表單的 <input>。
+wp_set_current_user( 1 );
 
 function futheme_seed_post( $type, $title, $content, $extra = array() ) {
 	$found = get_page_by_path( sanitize_title( $extra['post_name'] ?? $title ), OBJECT, $type );

@@ -61,9 +61,15 @@
 .fu-banner:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) {
 	background-color: var(--wp--preset--color--primary);
 }
-.fu-hero:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) > .wp-block-cover__background,
-.fu-banner:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) > .wp-block-cover__background {
+.wp-block-cover.fu-hero:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) > .wp-block-cover__background.has-background-dim,
+.wp-block-cover.fu-banner:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) > .wp-block-cover__background.has-background-dim {
 	opacity: 0;
+}
+/* 橫幅內容與頁首 Logo 對齊：內容容器撐滿，交給 constrained 版面置中到 75rem。 */
+/* 選擇器需高於核心 .wp-block-cover.has-custom-content-position.has-custom-content-position.is-position-* 的 width:auto。 */
+.wp-block-cover.fu-hero.has-custom-content-position.has-custom-content-position.has-custom-content-position > .wp-block-cover__inner-container,
+.wp-block-cover.fu-banner.has-custom-content-position.has-custom-content-position.has-custom-content-position > .wp-block-cover__inner-container {
+	width: 100%;
 }
 .fu-hero .wp-block-cover__image-background,
 .fu-banner .wp-block-cover__image-background {
@@ -148,4 +154,10 @@
 }
 .wp-site-blocks:not(:has(.fu-hero)) .fu-header--overlay {
 	background-color: var(--wp--preset--color--primary);
+}
+
+/* 頁尾緊接最後一個區段，不留 blockGap 白縫。 */
+.wp-site-blocks > .wp-block-template-part:last-child,
+.wp-site-blocks > footer:last-child {
+	margin-block-start: 0;
 }
