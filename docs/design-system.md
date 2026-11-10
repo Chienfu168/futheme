@@ -34,6 +34,27 @@
 - success/warning/danger 的純文字可置於 base/surface；實心狀態底色則使用 primary-contrast 字。
 - 點擊目標至少 24×24 CSS px，主要按鈕及輸入框目標 44px 高；小螢幕表格以可鍵盤操作的捲動容器處理。
 
+## 頁首、Logo 與首頁區段樣式
+
+- 內頁頁首：primary 底、primary-contrast 字與選單，Logo 用白色反白版。
+- 首頁頁首：透明，疊在首頁橫幅的黑色遮罩（≥0.54）之上；文字、選單與 Logo 一律白色。首頁無橫幅時改用內頁頁首。
+- 首頁區段以群組區塊的樣式變化提供，前台類別為 `is-style-{名稱}`：
+
+| 樣式名稱 | 底色 | 文字 | 連結 | 按鈕 |
+| --- | --- | --- | --- | --- |
+| （預設） | base | contrast | primary，底線 | primary 底、primary-contrast 字 |
+| `fu-section-surface` | surface | contrast | primary，底線 | primary 底、primary-contrast 字 |
+| `fu-section-primary` | primary | primary-contrast | primary-contrast，底線 | 反白：base 底、primary 字 |
+| `fu-section-secondary` | secondary | primary-contrast | primary-contrast，底線 | 反白：base 底、primary 字 |
+| `fu-section-accent` | accent | primary-contrast | primary-contrast，底線 | 反白：base 底、primary 字 |
+
+- 深色區段（primary／secondary／accent）內的焦點環改用 primary-contrast（白），間隔色同區段底色；
+  muted、success、warning、danger 文字不放在深色區段內，需要時改放白底卡片。
+- 以上配對都已在既有檢查內：白字對 primary／secondary／accent ≥4.5:1、primary 對 base ≥4.5:1、白色焦點環對深色底 ≥4.5:1。
+- 這四個 `fu-section-*` 樣式名稱是公開類別，改名須記錄相容性與版本。
+
+公開類別紀錄：2026-11-10 新增 `fu-section-surface`、`fu-section-primary`、`fu-section-secondary`、`fu-section-accent`（規格階段，尚未實作；色值與配色版本 0.3.0 不變）。
+
 ## 檢查邊界
 
 靜態工具檢查 contrast、muted、primary、secondary、accent、success、warning、danger 對 base/surface ≥4.5:1；所有實心色與白字 ≥4.5:1；border/focus 對 base/surface ≥3:1；accent 與 success/warning/danger 的色差 CIE76 ΔE ≥20，避免強調色被讀成狀態色；各配色 primary 兩兩 ΔE ≥20，後台切換時可分辨；同套 primary/accent ΔE ≥30。一般文字採 4.5:1，即使大字可放寬也不降低此預設。

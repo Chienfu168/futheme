@@ -21,6 +21,8 @@
 - [ ] 版型範圍（2026-11-10 確認）：頁首、頁尾選單、首頁、一般頁面、多文章頁面（index／archive／search）、單篇文章。
 - [ ] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅。圖片由各站後台設定，**不寫死在佈景裡**；
       須處理未設定時的 fallback、裁切與手機顯示、橫幅上文字在十套配色下的對比，以及圖片效能。
+- [ ] 頁首 Logo（方案 B，主色底＋反白 Logo）與無 Logo fallback；首頁透明頁首疊橫幅，無橫幅時退回主色頁首。
+- [ ] 首頁區段樣式 `fu-section-surface／primary／secondary／accent` 與首頁 pattern；驗證十套配色下深色區段的連結、反白按鈕與白色焦點環。
 - [ ] 實作按鈕、卡片、表單契約與 fixture，含 hover、focus、disabled、error；保留原生表單語意。
 - [ ] 驗證編輯器與前台一致、手動改色與字型、儲存、切換、重設及 DB 覆寫行為。
 - [ ] 驗證 RWD、鍵盤、對比及錯誤狀態；以 PHP lint、WPCS、JSON/schema 與 WordPress 安裝驗證建立 CI。
