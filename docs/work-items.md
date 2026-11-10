@@ -14,21 +14,27 @@
 
 ## M1 核心原型
 
-- [ ] 建立可重現隔離環境，鎖定 WordPress／PHP／資料庫與瀏覽器版本。
-- [ ] 建立 style.css、theme.json v3、最少 PHP 與模板；正確加入 text domain、跳至內容與原生 Navigation。
-- [ ] 從 Token 產生十套 styles JSON，版本 schema 驗證，檢查 slug 一致與生成結果可重現。
-- [ ] 實作頁首／頁尾、指定模板與三種 Patterns；前台不載入示範內容或業務邏輯。
-- [ ] 版型範圍（2026-11-10 確認）：頁首、頁尾選單、首頁、一般頁面、多文章頁面（index／archive／search）、單篇文章。
-- [ ] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅。圖片由各站後台設定，**不寫死在佈景裡**；
+- [x] 建立可重現隔離環境，鎖定 WordPress／PHP／資料庫與瀏覽器版本。tests/env；WP 7.1.4、PHP 8.3.6、SQLite、Chromium 153。待驗證：MySQL／MariaDB。
+- [x] 建立 style.css、theme.json v3、最少 PHP 與模板；正確加入 text domain、跳至內容與原生 Navigation。
+- [x] 從 Token 產生十套 styles JSON，檢查 slug 一致與生成結果可重現（`--check`）。
+- [ ] 對官方 theme.json schema 驗證（尚未執行）。
+- [x] 實作頁首／頁尾、指定模板與 Patterns（5 個首頁 pattern）；前台不載入示範內容或業務邏輯。
+- [x] 版型範圍（2026-11-10 確認）：頁首、頁尾選單、首頁、一般頁面、多文章頁面（index／archive／search）、單篇文章。
+- [x] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅。圖片由各站後台設定，**不寫死在佈景裡**；
       須處理未設定時的 fallback、裁切與手機顯示、橫幅上文字在十套配色下的對比，以及圖片效能。
-- [ ] 頁首 Logo（方案 B，主色底＋反白 Logo）與無 Logo fallback；首頁透明頁首疊橫幅，無橫幅時退回主色頁首。
-- [ ] 首頁區段樣式 `fu-section-surface／primary／secondary／accent` 與首頁 pattern；驗證十套配色下深色區段的連結、反白按鈕與白色焦點環。
-- [ ] 實作按鈕、卡片、表單契約與 fixture，含 hover、focus、disabled、error；保留原生表單語意。
+      已驗證：fallback、手機顯示、白圖最壞情況對比。待驗證：圖片效能與焦點裁切。
+- [x] 頁首 Logo（方案 B，主色底＋反白 Logo）與無 Logo fallback；首頁透明頁首疊橫幅，無橫幅時退回主色頁首。
+- [x] 首頁區段樣式 `fu-section-surface／primary／secondary／accent` 與首頁 pattern；驗證十套配色下深色區段的連結、反白按鈕與白色焦點環。
+- [x] 實作按鈕、卡片、表單契約與 fixture，含 hover、focus、disabled、error；保留原生表單語意。（hover 只有 CSS，未自動檢查）
 - [ ] 驗證編輯器與前台一致、手動改色與字型、儲存、切換、重設及 DB 覆寫行為。
-- [ ] 驗證 RWD、鍵盤、對比及錯誤狀態；以 PHP lint、WPCS、JSON/schema 與 WordPress 安裝驗證建立 CI。
-- [ ] 打包 Core 測試 ZIP，在乾淨站安裝、啟用、更新及回退，保存證據。
+      已驗證：區塊有效、切換十套、手動改主色、重設（以腳本寫入使用者 Global Styles）。待驗證：編輯器 UI 點選與儲存、字型調整。
+- [x] 驗證 RWD、鍵盤、對比及錯誤狀態（Chromium，桌機 1280／手機 390）。
+- [ ] 以 PHP lint、WPCS、JSON/schema 與 WordPress 安裝驗證建立 CI：設定已寫，尚未在 GitHub 執行；WPCS 本機無法執行。
+- [x] 打包 Core 測試 ZIP，在乾淨站安裝、啟用、更新及回退，保存證據。
 
 完成條件：可安裝原型、十套可選配色與三種元件，無重大 PHP/JS 錯誤；M2 整合與效能仍可待驗。
+
+2026-11-10：完成條件已達成（證據：[M1 測試報告](../tests/reports/m1-2026-11-10/README.md)）。上列未勾選項目為待驗證，不阻擋 M2 準備。
 
 ## M2 雙站與外掛
 

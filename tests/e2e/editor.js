@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 const BASE = process.env.FUTHEME_BASE || 'http://localhost:8890';
 const out = process.argv[2];
-const pw = fs.readFileSync(path.join(__dirname, '../../.wp-test/admin-password'), 'utf8').trim();
+const pw = fs.readFileSync(path.join(process.env.FUTHEME_WP_DIR || path.join(__dirname, '../../.wp-test'), 'admin-password'), 'utf8').trim();
 const ITEMS = ['wp_template/futheme-core//front-page', 'wp_template/futheme-core//index', 'wp_template/futheme-core//home', 'wp_template/futheme-core//page', 'wp_template/futheme-core//page-no-banner', 'wp_template/futheme-core//single', 'wp_template/futheme-core//archive', 'wp_template/futheme-core//search', 'wp_template/futheme-core//404', 'wp_template_part/futheme-core//header', 'wp_template_part/futheme-core//header-overlay', 'wp_template_part/futheme-core//footer'];
 (async () => {
   fs.mkdirSync(out, { recursive: true });

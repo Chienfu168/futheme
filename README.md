@@ -1,8 +1,8 @@
 # FuTheme Framework
 
-版本：0.1.0-planning｜建立日期：2026-11-02｜階段：M0 規格與骨架
+版本：0.1.0-m1｜建立日期：2026-11-02｜階段：M1 核心原型（2026-11-10）
 
-共用 Block Theme、十套品牌配色與外掛視覺契約。本專案目前只有規格、Token 資料與驗證工具，**沒有可安裝佈景或外掛，也未連接或修改正式網站**。
+共用 Block Theme、十套品牌配色與外掛視覺契約。M1 已有可安裝的佈景原型 `themes/futheme-core`（測試用，未部署），**外掛（Bridge）尚未實作，也未連接或修改正式網站**。
 
 ## 閱讀順序
 
@@ -19,7 +19,11 @@
 
 ## 本機驗證
 
-在專案根目錄執行 `python3 scripts/validate_spec.py`。只檢查規格連結、Token 完整性與指定色彩配對對比，不代表 WordPress 執行、效能、無障礙或外掛整合已通過。
+- 規格與配色：`python3 scripts/validate_spec.py`、`python3 scripts/build_theme_styles.py --check`
+- 打包：`scripts/package_theme.sh`（輸出到 dist/）
+- WordPress 實測：見 [tests/README.md](tests/README.md)，最新結果見 [M1 測試報告](tests/reports/m1-2026-11-10/README.md)
+
+靜態檢查不代表 WordPress 執行、效能、無障礙或外掛整合已通過。
 
 首輪目標 WordPress 7.1.4；不宣稱向下相容。實作前再次確認官方修補版與 PHP 要求。UR 原有 Sydney 優化工作不因本專案而自動變更。
 
@@ -27,4 +31,4 @@
 2026-11-10 由 `WP_Themes` 改名接手——舊的傳統 PHP 骨架沒有網站在用，也做不到「配色後台切換」，
 已移除並留在 git 歷史（`b58ca3b`）。共用佈景只有一套，不開第二個 repo。
 
-下一步是 M1：做出可安裝的 Block Theme 原型。UR 隔離副本及 UR AI Assistant 原始碼尚未取得（M2 依賴）；正式部署未建立。
+M1 原型已完成，待驗證項目見 [執行狀態](docs/status.md)。下一步是 M2，需要 UR 隔離副本及 UR AI Assistant 原始碼（尚未取得）；正式部署未建立。

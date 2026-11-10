@@ -30,14 +30,14 @@
 - disabled：surface 底／muted 字，保留 border；原生 disabled 或正確 aria-disabled 及事件攔截，不靠 opacity 降低可讀性。
 - 焦點環不可直接貼在 primary 實心按鈕上：focus 對各配色 primary 僅 1.5–2.9:1，必須保留上述 2px base 間隔（`outline-offset`），使焦點環落在 base 上。
 - 連結：primary 對 contrast 內文僅 1.5–2.9:1（低於 WCAG 1.4.1 的 3:1），底線為必要辨識手段，佈景樣式不得提供移除底線的預設。
-- 橫幅文字（M1 規劃，待實測）：以最壞情況純白圖片計，白字需黑色疊層不透明度 ≥0.54 才達 4.5:1；以 primary 疊色則需 0.70–0.88，幾乎遮蔽圖片，故預設用黑色半透明疊層或實心文字區塊，不用 primary 疊色。
+- 橫幅文字（M1 已實作）：遮罩用 contrast 色（不寫死黑色），不透明度 70%。以最壞情況純白圖片計，contrast 遮罩 ≥62% 才達 4.5:1，70% 為 6.0:1；primary 疊色需 70–88%，幾乎遮蔽圖片，故不用。代價：亮色照片會整體變暗。未設定圖片時改為 primary 實心底並隱藏遮罩。
 - success/warning/danger 的純文字可置於 base/surface；實心狀態底色則使用 primary-contrast 字。
 - 點擊目標至少 24×24 CSS px，主要按鈕及輸入框目標 44px 高；小螢幕表格以可鍵盤操作的捲動容器處理。
 
 ## 頁首、Logo 與首頁區段樣式
 
 - 內頁頁首：primary 底、primary-contrast 字與選單，Logo 用白色反白版。
-- 首頁頁首：透明，疊在首頁橫幅的黑色遮罩（≥0.54）之上；文字、選單與 Logo 一律白色。首頁無橫幅時改用內頁頁首。
+- 首頁頁首：透明，疊在首頁橫幅的 contrast 遮罩（70%）之上；文字、選單與 Logo 一律白色。首頁無橫幅時改用內頁頁首。
 - 首頁區段以群組區塊的樣式變化提供，前台類別為 `is-style-{名稱}`：
 
 | 樣式名稱 | 底色 | 文字 | 連結 | 按鈕 |
@@ -53,7 +53,10 @@
 - 以上配對都已在既有檢查內：白字對 primary／secondary／accent ≥4.5:1、primary 對 base ≥4.5:1、白色焦點環對深色底 ≥4.5:1。
 - 這四個 `fu-section-*` 樣式名稱是公開類別，改名須記錄相容性與版本。
 
-公開類別紀錄：2026-11-10 新增 `fu-section-surface`、`fu-section-primary`、`fu-section-secondary`、`fu-section-accent`（規格階段，尚未實作；色值與配色版本 0.3.0 不變）。
+公開類別紀錄：
+
+- 2026-11-10 規格新增 `fu-section-surface`、`fu-section-primary`、`fu-section-secondary`、`fu-section-accent`（前台類別 `is-style-fu-section-*`）。
+- 2026-11-10 M1（0.1.0-m1）實作上述區段樣式，並新增 `fu-header`、`fu-header--overlay`、`fu-hero`、`fu-banner`、`fu-card`、`fu-field-error`、`fu-status-success`、`fu-status-warning`、`fu-status-danger`。色值與配色版本 0.3.0 不變。
 
 ## 檢查邊界
 

@@ -1,0 +1,10 @@
+urban-blue: PASS
+tech-blue: PASS
+forest-green: PASS
+business-green: PASS
+warm-orange: PASS
+coral-red: PASS
+creative-purple: PASS
+graphite: PASS
+classic-gold: PASS
+aqua-blue: PASS

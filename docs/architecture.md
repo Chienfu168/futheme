@@ -27,6 +27,6 @@ Block Theme 以 HTML 區塊模板和 theme.json 管理呈現；Style Variations 
 
 預設設計資料 → 建置時產生 theme.json／styles JSON → WordPress 原生 Global Styles → CSS 變數 → 原生區塊及外掛。使用者在網站編輯器儲存的樣式具有較高優先序；資料庫模板修改也可能遮蔽新版檔案。不得以更新檔案等同網站已更新外觀。
 
-配色主資料為 design/tokens.json，版本由該清單追蹤；生成 WordPress 設定時只輸出 schema 支援欄位。首版採 theme.json version 3，依目標 WordPress 版本 schema 驗證；尚無生成器。Core 的預設配色為 urban-blue，十套 variation 仍包含 urban-blue，供明確選回。
+配色主資料為 design/tokens.json，版本由該清單追蹤；生成 WordPress 設定時只輸出 schema 支援欄位。首版採 theme.json version 3，生成器為 `scripts/build_theme_styles.py`（M1，含 `--check`）；官方 JSON schema 驗證尚未執行，以 WordPress 7.1.4 實際載入驗證。Core 的預設配色為 urban-blue，十套 variation 仍包含 urban-blue，供明確選回。
 
 前台不執行配色計算或配色切換 JS；無自訂設定頁、無配色資料表、無每次請求掃描。手動變更 primary 不會保證自動調整其他色，需由管理者檢查對比。

@@ -1,0 +1,12 @@
+PASS wp_template/front-page: 59 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/index: 35 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/home: 35 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/page: 24 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/page-no-banner: 23 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/single: 44 個區塊（外部資源被測試網路擋下 3 筆，不計）
+PASS wp_template/archive: 36 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/search: 36 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template/404: 24 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template_part/header: 9 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template_part/header-overlay: 9 個區塊（外部資源被測試網路擋下 2 筆，不計）
+PASS wp_template_part/footer: 9 個區塊（外部資源被測試網路擋下 2 筆，不計）
