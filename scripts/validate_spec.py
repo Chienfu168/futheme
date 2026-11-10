@@ -25,6 +25,8 @@ def delta_e(a, b):
     return sum((x - y) ** 2 for x, y in zip(lab(a), lab(b))) ** 0.5
 
 MIN_ACCENT_STATUS_DELTA_E = 20.0
+MIN_PRIMARY_ACCENT_DELTA_E = 30.0
+MIN_PALETTE_PRIMARY_DELTA_E = 20.0
 
 def ratio(a, b):
     a, b = sorted((luminance(a), luminance(b)))
@@ -62,6 +64,19 @@ def main():
             min_delta = min(min_delta, value)
             if value < MIN_ACCENT_STATUS_DELTA_E:
                 errors.append(f"{palette['slug']} accent/{status}: deltaE {value:.1f} < {MIN_ACCENT_STATUS_DELTA_E}")
+        value = delta_e(colors["primary"], colors["accent"])
+        distinct += 1
+        min_delta = min(min_delta, value)
+        if value < MIN_PRIMARY_ACCENT_DELTA_E:
+            errors.append(f"{palette['slug']} primary/accent: deltaE {value:.1f} < {MIN_PRIMARY_ACCENT_DELTA_E}")
+    valid = [p for p in palettes if set(p["colors"]) == REQUIRED]
+    for i, first in enumerate(valid):
+        for second in valid[i + 1:]:
+            value = delta_e(first["colors"]["primary"], second["colors"]["primary"])
+            distinct += 1
+            min_delta = min(min_delta, value)
+            if value < MIN_PALETTE_PRIMARY_DELTA_E:
+                errors.append(f"{first['slug']}/{second['slug']} primary: deltaE {value:.1f} < {MIN_PALETTE_PRIMARY_DELTA_E}")
     for document in ROOT.rglob("*.md"):
         for link in re.findall(r"\[[^\]]*\]\(([^)]+)\)", document.read_text()):
             if "://" in link or link.startswith("#"):
@@ -70,7 +85,7 @@ def main():
                 errors.append(f"Broken link: {document.relative_to(ROOT)} -> {link}")
     if errors:
         raise SystemExit("\n".join(errors))
-    print(f"PASS: 10 palettes, 13 tokens each, {checks} contrast pairs, {distinct} accent/status distinctness pairs, local Markdown links. Lowest ratio: {minimum:.3f}:1 (includes 3:1 UI checks); lowest accent/status deltaE: {min_delta:.1f}.")
+    print(f"PASS: 10 palettes, 13 tokens each, {checks} contrast pairs, {distinct} color distinctness pairs, local Markdown links. Lowest ratio: {minimum:.3f}:1 (includes 3:1 UI checks); lowest distinctness deltaE: {min_delta:.1f}.")
     print("WordPress runtime, browser accessibility, plugin integration and performance: NOT TESTED.")
 
 if __name__ == "__main__":

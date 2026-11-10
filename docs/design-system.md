@@ -1,6 +1,6 @@
 # 設計系統與完整配色
 
-狀態：預設 Token 已定義；實際元件及編輯器尚未驗證。機器資料見 [tokens.json](../design/tokens.json)，配色版本 0.2.0。
+狀態：預設 Token 已定義；實際元件及編輯器尚未驗證。機器資料見 [tokens.json](../design/tokens.json)，配色版本 0.3.0。
 
 ## 語意與配對
 
@@ -9,13 +9,13 @@
 | 配色／slug | primary | primary-contrast | secondary | accent | base | surface | contrast | muted | border | focus | success | warning | danger |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 經典都更藍 / urban-blue | #1769AA | #FFFFFF | #174A70 | #8E3B76 | #FFFFFF | #F0F6FC | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
-| 科技深藍 / tech-blue | #153E75 | #FFFFFF | #25476A | #6D28D9 | #FFFFFF | #EFF4FA | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
-| 教育森林綠 / forest-green | #256B45 | #FFFFFF | #365A3C | #2F5F9E | #FFFFFF | #F0F7F1 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
+| 科技深藍 / tech-blue | #23307A | #FFFFFF | #25476A | #6D28D9 | #FFFFFF | #EFF4FA | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
+| 教育森林綠 / forest-green | #3D6B14 | #FFFFFF | #4A5A2E | #2F5F9E | #FFFFFF | #F3F7EC | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 商務墨綠 / business-green | #155E52 | #FFFFFF | #34534B | #7A3E6A | #FFFFFF | #EFF7F5 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 活力暖橘 / warm-orange | #A9440B | #FFFFFF | #70452E | #1D5C7A | #FFFFFF | #FFF4EB | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 公益珊瑚紅 / coral-red | #B63E43 | #FFFFFF | #7A4046 | #25635D | #FFFFFF | #FFF1F2 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 創意紫 / creative-purple | #713FA0 | #FFFFFF | #554169 | #176579 | #FFFFFF | #F7F1FC | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
-| 專業石墨灰 / graphite | #374151 | #FFFFFF | #4B5563 | #175F87 | #FFFFFF | #F3F4F6 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
+| 專業石墨灰 / graphite | #374151 | #FFFFFF | #5B6676 | #1D5FD1 | #FFFFFF | #F3F4F6 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 文化典雅金 / classic-gold | #806013 | #FFFFFF | #66532E | #714052 | #FFFFFF | #FAF6EA | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 清新湖水藍 / aqua-blue | #086D80 | #FFFFFF | #285B66 | #7049A0 | #FFFFFF | #EDF8FA | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 
@@ -36,7 +36,7 @@
 
 ## 檢查邊界
 
-靜態工具檢查 contrast、muted、primary、secondary、accent、success、warning、danger 對 base/surface ≥4.5:1；所有實心色與白字 ≥4.5:1；border/focus 對 base/surface ≥3:1；accent 與 success/warning/danger 的色差 CIE76 ΔE ≥20，避免強調色被讀成狀態色。一般文字採 4.5:1，即使大字可放寬也不降低此預設。
+靜態工具檢查 contrast、muted、primary、secondary、accent、success、warning、danger 對 base/surface ≥4.5:1；所有實心色與白字 ≥4.5:1；border/focus 對 base/surface ≥3:1；accent 與 success/warning/danger 的色差 CIE76 ΔE ≥20，避免強調色被讀成狀態色；各配色 primary 兩兩 ΔE ≥20，後台切換時可分辨；同套 primary/accent ΔE ≥30。一般文字採 4.5:1，即使大字可放寬也不降低此預設。
 
 這些值只覆蓋指定預設配對；不涵蓋圖片、透明疊色、第三方樣式或任意使用者修改。M1 必須額外驗證實際 DOM、鍵盤與視覺狀態。首版沒有自動產生對比色功能。
 
@@ -44,5 +44,6 @@
 
 | 版本 | 日期 | 變更 | 相容性 |
 | --- | --- | --- | --- |
+| 0.3.0 | 2026-11-10 | 拉開相近配色：tech-blue primary #153E75→#23307A（偏靛藍，與 urban-blue ΔE 18.8→28.6）；forest-green primary #256B45→#3D6B14、secondary #365A3C→#4A5A2E、surface #F0F7F1→#F3F7EC（改葉綠／橄欖調，與 business-green ΔE 16.5→36.9）；graphite secondary #4B5563→#5B6676、accent #175F87→#1D5FD1（三色內部區別 8.7／21.5→15.6／60）。驗證工具新增 primary 兩兩 ΔE ≥20 與 primary/accent ΔE ≥30。 | Token slug 與 CSS 變數名稱不變；只改色值。配色名稱與定位不變。尚無安裝站。 |
 | 0.2.0 | 2026-11-10 | accent 調整：urban-blue #8A4B08→#8E3B76、forest-green #875500→#2F5F9E、business-green #855A11→#7A3E6A。原值與 warning #805900 色差僅 13.6／5.7／4.5，強調色會被誤認為警告。驗證工具新增 accent/狀態色 ΔE ≥20 檢查。 | Token slug 與 CSS 變數名稱不變；只改色值。尚無安裝站，無既有 Global Styles 需遷移。 |
 | 0.1.0 | 2026-11-02 | 初版十套配色。 | — |
