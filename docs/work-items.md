@@ -1,6 +1,6 @@
 # 開發工作與里程碑
 
-標記：[x] 本輪完成；[ ] 待實作或待驗證。每個階段須留下證據，不以後續規劃充作完成。
+標記：[x] 完成；[~] 檔案寫出但未驗證；[ ] 待實作或待驗證。每個階段須留下證據，不以後續規劃充作完成。
 
 ## M0 規格與骨架
 
@@ -15,9 +15,14 @@
 ## M1 核心原型
 
 - [ ] 建立可重現隔離環境，鎖定 WordPress／PHP／資料庫與瀏覽器版本。
-- [ ] 建立 style.css、theme.json v3、最少 PHP 與模板；正確加入 text domain、跳至內容與原生 Navigation。
-- [ ] 從 Token 產生十套 styles JSON，版本 schema 驗證，檢查 slug 一致與生成結果可重現。
-- [ ] 實作頁首／頁尾、指定模板與三種 Patterns；前台不載入示範內容或業務邏輯。
+- [~] 建立 style.css、theme.json v3、最少 PHP 與模板（2026-11-10 寫出，**未在 WordPress 驗證**）。
+      text domain futheme-core 已設；原生 Navigation 已用；**「跳至內容」還沒做**。
+- [x] 從 Token 產生十套 styles JSON（2026-11-10）：`scripts/generate_styles.py`。
+      色盤唯一主資料是 design/tokens.json，theme.json 與 styles/ 都由它產生，
+      `--check` 可在 CI 驗證一致性——手寫 130 個欄位打錯 slug 這種錯誤因此不可能發生。
+      schema 版本為 3；產出順序固定所以可重現。
+- [~] 頁首／頁尾 template part 與 index 範本已寫出（2026-11-10，**未在 WordPress 驗證**，
+      區塊標記沒有經過 WordPress 的解析器）。指定模板其餘六種與三種 Patterns 未開始。
 - [ ] 版型範圍（2026-11-10 確認）：頁首、頁尾選單、首頁、一般頁面、多文章頁面（index／archive／search）、單篇文章。
 - [ ] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅。圖片由各站後台設定，**不寫死在佈景裡**；
       須處理未設定時的 fallback、裁切與手機顯示、橫幅上文字在十套配色下的對比，以及圖片效能。

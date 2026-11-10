@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "title": "經典都更藍",
+  "settings": {
+    "color": {
+      "palette": [
+        {
+          "slug": "primary",
+          "color": "#1769AA",
+          "name": "主色"
+        },
+        {
+          "slug": "primary-contrast",
+          "color": "#FFFFFF",
+          "name": "主色上的文字"
+        },
+        {
+          "slug": "secondary",
+          "color": "#174A70",
+          "name": "輔色"
+        },
+        {
+          "slug": "accent",
+          "color": "#8A4B08",
+          "name": "強調色"
+        },
+        {
+          "slug": "base",
+          "color": "#FFFFFF",
+          "name": "底色"
+        },
+        {
+          "slug": "surface",
+          "color": "#F0F6FC",
+          "name": "區塊底色"
+        },
+        {
+          "slug": "contrast",
+          "color": "#17212B",
+          "name": "文字"
+        },
+        {
+          "slug": "muted",
+          "color": "#52606D",
+          "name": "次要文字"
+        },
+        {
+          "slug": "border",
+          "color": "#778391",
+          "name": "框線"
+        },
+        {
+          "slug": "focus",
+          "color": "#17212B",
+          "name": "鍵盤焦點"
+        },
+        {
+          "slug": "success",
+          "color": "#21633B",
+          "name": "成功"
+        },
+        {
+          "slug": "warning",
+          "color": "#805900",
+          "name": "警告"
+        },
+        {
+          "slug": "danger",
+          "color": "#A52834",
+          "name": "錯誤"
+        }
+      ]
+    }
+  }
+}
