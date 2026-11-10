@@ -1,6 +1,6 @@
 # 設計系統與完整配色
 
-狀態：預設 Token 已定義；實際元件及編輯器尚未驗證。機器資料見 [tokens.json](../design/tokens.json)，配色版本 0.1.0。
+狀態：預設 Token 已定義；實際元件及編輯器尚未驗證。機器資料見 [tokens.json](../design/tokens.json)，配色版本 0.2.0。
 
 ## 語意與配對
 
@@ -8,10 +8,10 @@
 
 | 配色／slug | primary | primary-contrast | secondary | accent | base | surface | contrast | muted | border | focus | success | warning | danger |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 經典都更藍 / urban-blue | #1769AA | #FFFFFF | #174A70 | #8A4B08 | #FFFFFF | #F0F6FC | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
+| 經典都更藍 / urban-blue | #1769AA | #FFFFFF | #174A70 | #8E3B76 | #FFFFFF | #F0F6FC | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 科技深藍 / tech-blue | #153E75 | #FFFFFF | #25476A | #6D28D9 | #FFFFFF | #EFF4FA | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
-| 教育森林綠 / forest-green | #256B45 | #FFFFFF | #365A3C | #875500 | #FFFFFF | #F0F7F1 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
-| 商務墨綠 / business-green | #155E52 | #FFFFFF | #34534B | #855A11 | #FFFFFF | #EFF7F5 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
+| 教育森林綠 / forest-green | #256B45 | #FFFFFF | #365A3C | #2F5F9E | #FFFFFF | #F0F7F1 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
+| 商務墨綠 / business-green | #155E52 | #FFFFFF | #34534B | #7A3E6A | #FFFFFF | #EFF7F5 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 活力暖橘 / warm-orange | #A9440B | #FFFFFF | #70452E | #1D5C7A | #FFFFFF | #FFF4EB | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 公益珊瑚紅 / coral-red | #B63E43 | #FFFFFF | #7A4046 | #25635D | #FFFFFF | #FFF1F2 | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
 | 創意紫 / creative-purple | #713FA0 | #FFFFFF | #554169 | #176579 | #FFFFFF | #F7F1FC | #17212B | #52606D | #778391 | #17212B | #21633B | #805900 | #A52834 |
@@ -28,11 +28,21 @@
 - 表單：base 底／contrast 字，border 邊框，標籤永久可見；錯誤使用 danger 文字、圖示與 aria-invalid。
 - focus-visible：2px focus 實線，2px base 間隔；適用明亮 base/surface；深色區域需測試雙色焦點環，不能直接沿用單色。
 - disabled：surface 底／muted 字，保留 border；原生 disabled 或正確 aria-disabled 及事件攔截，不靠 opacity 降低可讀性。
+- 焦點環不可直接貼在 primary 實心按鈕上：focus 對各配色 primary 僅 1.5–2.9:1，必須保留上述 2px base 間隔（`outline-offset`），使焦點環落在 base 上。
+- 連結：primary 對 contrast 內文僅 1.5–2.9:1（低於 WCAG 1.4.1 的 3:1），底線為必要辨識手段，佈景樣式不得提供移除底線的預設。
+- 橫幅文字（M1 規劃，待實測）：以最壞情況純白圖片計，白字需黑色疊層不透明度 ≥0.54 才達 4.5:1；以 primary 疊色則需 0.70–0.88，幾乎遮蔽圖片，故預設用黑色半透明疊層或實心文字區塊，不用 primary 疊色。
 - success/warning/danger 的純文字可置於 base/surface；實心狀態底色則使用 primary-contrast 字。
 - 點擊目標至少 24×24 CSS px，主要按鈕及輸入框目標 44px 高；小螢幕表格以可鍵盤操作的捲動容器處理。
 
 ## 檢查邊界
 
-靜態工具檢查 contrast、muted、primary、secondary、accent、success、warning、danger 對 base/surface ≥4.5:1；所有實心色與白字 ≥4.5:1；border/focus 對 base/surface ≥3:1。一般文字採 4.5:1，即使大字可放寬也不降低此預設。
+靜態工具檢查 contrast、muted、primary、secondary、accent、success、warning、danger 對 base/surface ≥4.5:1；所有實心色與白字 ≥4.5:1；border/focus 對 base/surface ≥3:1；accent 與 success/warning/danger 的色差 CIE76 ΔE ≥20，避免強調色被讀成狀態色。一般文字採 4.5:1，即使大字可放寬也不降低此預設。
 
 這些值只覆蓋指定預設配對；不涵蓋圖片、透明疊色、第三方樣式或任意使用者修改。M1 必須額外驗證實際 DOM、鍵盤與視覺狀態。首版沒有自動產生對比色功能。
+
+## 配色版本紀錄
+
+| 版本 | 日期 | 變更 | 相容性 |
+| --- | --- | --- | --- |
+| 0.2.0 | 2026-11-10 | accent 調整：urban-blue #8A4B08→#8E3B76、forest-green #875500→#2F5F9E、business-green #855A11→#7A3E6A。原值與 warning #805900 色差僅 13.6／5.7／4.5，強調色會被誤認為警告。驗證工具新增 accent/狀態色 ΔE ≥20 檢查。 | Token slug 與 CSS 變數名稱不變；只改色值。尚無安裝站，無既有 Global Styles 需遷移。 |
+| 0.1.0 | 2026-11-02 | 初版十套配色。 | — |
