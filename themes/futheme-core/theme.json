@@ -1,0 +1,353 @@
+{
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"defaultDuotone": false,
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#1769AA",
+					"name": "主色 Primary"
+				},
+				{
+					"slug": "primary-contrast",
+					"color": "#FFFFFF",
+					"name": "主色上的文字 Primary contrast"
+				},
+				{
+					"slug": "secondary",
+					"color": "#174A70",
+					"name": "輔色 Secondary"
+				},
+				{
+					"slug": "accent",
+					"color": "#8E3B76",
+					"name": "強調色 Accent"
+				},
+				{
+					"slug": "base",
+					"color": "#FFFFFF",
+					"name": "底色 Base"
+				},
+				{
+					"slug": "surface",
+					"color": "#F0F6FC",
+					"name": "淺底 Surface"
+				},
+				{
+					"slug": "contrast",
+					"color": "#17212B",
+					"name": "內文 Contrast"
+				},
+				{
+					"slug": "muted",
+					"color": "#52606D",
+					"name": "次要文字 Muted"
+				},
+				{
+					"slug": "border",
+					"color": "#778391",
+					"name": "邊框 Border"
+				},
+				{
+					"slug": "focus",
+					"color": "#17212B",
+					"name": "焦點 Focus"
+				},
+				{
+					"slug": "success",
+					"color": "#21633B",
+					"name": "成功 Success"
+				},
+				{
+					"slug": "warning",
+					"color": "#805900",
+					"name": "警告 Warning"
+				},
+				{
+					"slug": "danger",
+					"color": "#A52834",
+					"name": "危險 Danger"
+				}
+			]
+		},
+		"layout": {
+			"contentSize": "48rem",
+			"wideSize": "75rem"
+		},
+		"spacing": {
+			"defaultSpacingSizes": false,
+			"spacingSizes": [
+				{
+					"slug": "10",
+					"name": "0.25rem",
+					"size": "0.25rem"
+				},
+				{
+					"slug": "20",
+					"name": "0.5rem",
+					"size": "0.5rem"
+				},
+				{
+					"slug": "30",
+					"name": "0.75rem",
+					"size": "0.75rem"
+				},
+				{
+					"slug": "40",
+					"name": "1rem",
+					"size": "1rem"
+				},
+				{
+					"slug": "50",
+					"name": "1.5rem",
+					"size": "1.5rem"
+				},
+				{
+					"slug": "60",
+					"name": "2rem",
+					"size": "2rem"
+				},
+				{
+					"slug": "70",
+					"name": "3rem",
+					"size": "3rem"
+				},
+				{
+					"slug": "80",
+					"name": "4rem",
+					"size": "4rem"
+				}
+			],
+			"units": [
+				"px",
+				"em",
+				"rem",
+				"%",
+				"vw",
+				"vh"
+			]
+		},
+		"typography": {
+			"defaultFontSizes": false,
+			"fluid": false,
+			"fontFamilies": [
+				{
+					"slug": "system",
+					"name": "系統字型 System",
+					"fontFamily": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"PingFang TC\", \"Noto Sans TC\", \"Microsoft JhengHei\", sans-serif"
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "small",
+					"name": "小",
+					"size": "0.875rem"
+				},
+				{
+					"slug": "medium",
+					"name": "中",
+					"size": "1rem"
+				},
+				{
+					"slug": "large",
+					"name": "大",
+					"size": "1.25rem"
+				},
+				{
+					"slug": "x-large",
+					"name": "特大",
+					"size": "1.75rem"
+				},
+				{
+					"slug": "xx-large",
+					"name": "標題",
+					"size": "clamp(2rem, 1.4rem + 2.4vw, 2.75rem)"
+				}
+			]
+		},
+		"custom": {
+			"futheme": {
+				"paletteVersion": "0.3.0",
+				"radius": "0.375rem"
+			}
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var:preset|color|base",
+			"text": "var:preset|color|contrast"
+		},
+		"typography": {
+			"fontFamily": "var:preset|font-family|system",
+			"fontSize": "var:preset|font-size|medium",
+			"lineHeight": "1.65"
+		},
+		"spacing": {
+			"blockGap": "var:preset|spacing|50",
+			"padding": {
+				"left": "var:preset|spacing|40",
+				"right": "var:preset|spacing|40"
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var:preset|color|primary"
+				},
+				"typography": {
+					"textDecoration": "underline"
+				},
+				":hover": {
+					"typography": {
+						"textDecoration": "underline"
+					}
+				}
+			},
+			"heading": {
+				"typography": {
+					"lineHeight": "1.25",
+					"fontWeight": "700"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontSize": "var:preset|font-size|xx-large"
+				}
+			},
+			"h2": {
+				"typography": {
+					"fontSize": "var:preset|font-size|x-large"
+				}
+			},
+			"h3": {
+				"typography": {
+					"fontSize": "var:preset|font-size|large"
+				}
+			},
+			"button": {
+				"color": {
+					"background": "var:preset|color|primary",
+					"text": "var:preset|color|primary-contrast"
+				},
+				"border": {
+					"radius": "var(--wp--custom--futheme--radius)"
+				},
+				"spacing": {
+					"padding": {
+						"top": "0.625rem",
+						"bottom": "0.625rem",
+						"left": "1.25rem",
+						"right": "1.25rem"
+					}
+				},
+				"typography": {
+					"fontSize": "var:preset|font-size|medium",
+					"lineHeight": "1.5"
+				},
+				":hover": {
+					"typography": {
+						"textDecoration": "underline"
+					}
+				}
+			},
+			"caption": {
+				"color": {
+					"text": "var:preset|color|muted"
+				},
+				"typography": {
+					"fontSize": "var:preset|font-size|small"
+				}
+			}
+		},
+		"blocks": {
+			"core/site-title": {
+				"typography": {
+					"fontSize": "var:preset|font-size|large",
+					"fontWeight": "700"
+				},
+				"elements": {
+					"link": {
+						"typography": {
+							"textDecoration": "none"
+						}
+					}
+				}
+			},
+			"core/navigation": {
+				"typography": {
+					"fontSize": "var:preset|font-size|medium"
+				}
+			},
+			"core/post-date": {
+				"color": {
+					"text": "var:preset|color|muted"
+				},
+				"typography": {
+					"fontSize": "var:preset|font-size|small"
+				}
+			},
+			"core/post-terms": {
+				"typography": {
+					"fontSize": "var:preset|font-size|small"
+				}
+			},
+			"core/separator": {
+				"color": {
+					"text": "var:preset|color|border"
+				}
+			},
+			"core/quote": {
+				"border": {
+					"left": {
+						"color": "var:preset|color|primary",
+						"width": "4px",
+						"style": "solid"
+					}
+				},
+				"spacing": {
+					"padding": {
+						"left": "var:preset|spacing|50"
+					}
+				}
+			},
+			"core/search": {
+				"border": {
+					"radius": "var(--wp--custom--futheme--radius)"
+				}
+			}
+		}
+	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "頁首（主色底）",
+			"area": "header"
+		},
+		{
+			"name": "header-overlay",
+			"title": "頁首（透明，疊在首頁橫幅上）",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "頁尾",
+			"area": "footer"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "page-no-banner",
+			"title": "頁面（無頁首橫幅）",
+			"postTypes": [
+				"page",
+				"post"
+			]
+		}
+	]
+}

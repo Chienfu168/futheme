@@ -1,0 +1,76 @@
+{
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"version": 3,
+	"title": "清新湖水藍",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"slug": "primary",
+					"color": "#086D80",
+					"name": "主色 Primary"
+				},
+				{
+					"slug": "primary-contrast",
+					"color": "#FFFFFF",
+					"name": "主色上的文字 Primary contrast"
+				},
+				{
+					"slug": "secondary",
+					"color": "#285B66",
+					"name": "輔色 Secondary"
+				},
+				{
+					"slug": "accent",
+					"color": "#7049A0",
+					"name": "強調色 Accent"
+				},
+				{
+					"slug": "base",
+					"color": "#FFFFFF",
+					"name": "底色 Base"
+				},
+				{
+					"slug": "surface",
+					"color": "#EDF8FA",
+					"name": "淺底 Surface"
+				},
+				{
+					"slug": "contrast",
+					"color": "#17212B",
+					"name": "內文 Contrast"
+				},
+				{
+					"slug": "muted",
+					"color": "#52606D",
+					"name": "次要文字 Muted"
+				},
+				{
+					"slug": "border",
+					"color": "#778391",
+					"name": "邊框 Border"
+				},
+				{
+					"slug": "focus",
+					"color": "#17212B",
+					"name": "焦點 Focus"
+				},
+				{
+					"slug": "success",
+					"color": "#21633B",
+					"name": "成功 Success"
+				},
+				{
+					"slug": "warning",
+					"color": "#805900",
+					"name": "警告 Warning"
+				},
+				{
+					"slug": "danger",
+					"color": "#A52834",
+					"name": "危險 Danger"
+				}
+			]
+		}
+	}
+}

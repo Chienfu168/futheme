@@ -1,0 +1,151 @@
+/*
+ * FuTheme Core 自有樣式。配色一律引用 --wp--preset--color--*，不寫死品牌色。
+ * 公開類別：fu-header、fu-hero、fu-banner、fu-card、is-style-fu-section-*（變更須記錄相容性）。
+ */
+
+/* 焦點：2px focus 實線＋2px 間隔，讓焦點環落在 base 上（focus 對 primary 僅 1.5–2.9:1，不可貼齊按鈕）。 */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible,
+.wp-element-button:focus-visible,
+.wp-block-button__link:focus-visible {
+	outline: 2px solid var(--wp--preset--color--focus);
+	outline-offset: 2px;
+}
+
+/* 深色區域（主色頁首、首頁橫幅、頁首橫幅、深色區段）：焦點環改用 primary-contrast。 */
+:is(.fu-header, .fu-hero, .fu-banner, .is-style-fu-section-primary, .is-style-fu-section-secondary, .is-style-fu-section-accent)
+	:where(a, button, input, select, textarea, summary, [tabindex], .wp-element-button):focus-visible {
+	outline-color: var(--wp--preset--color--primary-contrast);
+}
+
+/* 頁首與 Logo：桌機高度上限 48px、手機 36px，寬度等比。 */
+.fu-header .wp-block-site-logo img {
+	max-height: 48px;
+	width: auto;
+}
+@media (max-width: 600px) {
+	.fu-header .wp-block-site-logo img {
+		max-height: 36px;
+	}
+}
+.fu-header .wp-block-navigation-item__content {
+	display: inline-block;
+	min-height: 24px;
+	padding-block: 0.25rem;
+}
+.fu-header .wp-block-site-title a,
+.fu-header .wp-block-navigation-item__content {
+	text-decoration: none;
+}
+.fu-header .current-menu-item > .wp-block-navigation-item__content,
+.fu-header .wp-block-navigation-item__content:hover {
+	text-decoration: underline;
+	text-underline-offset: 0.3em;
+}
+/* 子選單與手機選單用 base 底，文字回到 contrast（避免白字疊白底）。 */
+.fu-header .wp-block-navigation__submenu-container .wp-block-navigation-item__content,
+.fu-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation-item__content {
+	color: var(--wp--preset--color--contrast);
+}
+
+/* 首頁橫幅與頁首橫幅：文字與連結用 primary-contrast；遮罩用 contrast 色（theme.json custom heroOverlay，預設 70%）。 */
+.fu-hero,
+.fu-banner {
+	color: var(--wp--preset--color--primary-contrast);
+}
+.fu-hero a:where(:not(.wp-element-button, .wp-block-button__link)),
+.fu-banner a:where(:not(.wp-element-button, .wp-block-button__link)) {
+	color: var(--wp--preset--color--primary-contrast);
+}
+/* 沒有設定圖片時：改為 primary 實心底、隱藏遮罩，不出現空白或灰塊。 */
+.fu-hero:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)),
+.fu-banner:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) {
+	background-color: var(--wp--preset--color--primary);
+}
+.fu-hero:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) > .wp-block-cover__background,
+.fu-banner:not(:has(.wp-block-cover__image-background, .wp-block-cover__video-background)) > .wp-block-cover__background {
+	opacity: 0;
+}
+.fu-hero .wp-block-cover__image-background,
+.fu-banner .wp-block-cover__image-background {
+	object-position: var(--fu-focal, 50% 50%);
+}
+@media (max-width: 600px) {
+	.fu-hero.wp-block-cover {
+		min-height: 420px !important;
+	}
+	.fu-banner.wp-block-cover {
+		min-height: 160px !important;
+	}
+}
+
+/* 卡片：surface 底、contrast 字、border 邊框。 */
+.fu-card {
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--contrast);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--futheme--radius);
+	height: 100%;
+}
+.fu-card .wp-block-post-title a {
+	text-decoration: none;
+}
+.fu-card .wp-block-post-title a:hover {
+	text-decoration: underline;
+}
+
+/* 表單：base 底、contrast 字、border 邊框；錯誤用 danger＋aria-invalid；停用不靠 opacity。 */
+:where(input:not([type="checkbox"], [type="radio"], [type="submit"], [type="button"], [type="hidden"]), select, textarea) {
+	background: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
+	border: 1px solid var(--wp--preset--color--border);
+	border-radius: var(--wp--custom--futheme--radius);
+	font: inherit;
+	min-height: 44px;
+	padding: 0.5rem 0.75rem;
+	box-sizing: border-box;
+}
+:where(input, select, textarea)[aria-invalid="true"] {
+	border-color: var(--wp--preset--color--danger);
+	border-width: 2px;
+}
+.fu-field-error {
+	color: var(--wp--preset--color--danger);
+}
+:where(input, select, textarea, button, .wp-element-button):disabled,
+:where(.wp-element-button, .wp-block-button__link)[aria-disabled="true"] {
+	background: var(--wp--preset--color--surface);
+	color: var(--wp--preset--color--muted);
+	border: 1px solid var(--wp--preset--color--border);
+	cursor: not-allowed;
+	text-decoration: none;
+}
+.wp-element-button,
+.wp-block-button__link {
+	min-height: 44px;
+}
+
+/* 狀態文字：純文字放 base/surface；需同時有文字或圖示。 */
+.fu-status-success { color: var(--wp--preset--color--success); }
+.fu-status-warning { color: var(--wp--preset--color--warning); }
+.fu-status-danger { color: var(--wp--preset--color--danger); }
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		scroll-behavior: auto !important;
+		transition: none !important;
+	}
+}
+
+/* 首頁透明頁首：疊在首頁橫幅上方。頁面沒有首頁橫幅時改回主色實心頁首。 */
+.wp-site-blocks:has(.fu-header--overlay) {
+	position: relative;
+}
+.wp-site-blocks:has(.fu-hero) > :first-child:has(.fu-header--overlay),
+.wp-site-blocks:has(.fu-hero) > .fu-header--overlay {
+	position: absolute;
+	inset: 0 0 auto;
+	z-index: 10;
+}
+.wp-site-blocks:not(:has(.fu-hero)) .fu-header--overlay {
+	background-color: var(--wp--preset--color--primary);
+}
