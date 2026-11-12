@@ -7,3 +7,4 @@ vendor/
 *.log
 dist/
 build/
+.wp-test/
