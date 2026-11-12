@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"version": 3,
+	"title": "清新湖水藍",
+	"slug": "aqua-blue",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#086D80",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Primary Contrast",
+					"slug": "primary-contrast"
+				},
+				{
+					"color": "#285B66",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#7049A0",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#EDF8FA",
+					"name": "Surface",
+					"slug": "surface"
+				},
+				{
+					"color": "#17212B",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#52606D",
+					"name": "Muted",
+					"slug": "muted"
+				},
+				{
+					"color": "#778391",
+					"name": "Border",
+					"slug": "border"
+				},
+				{
+					"color": "#17212B",
+					"name": "Focus",
+					"slug": "focus"
+				},
+				{
+					"color": "#21633B",
+					"name": "Success",
+					"slug": "success"
+				},
+				{
+					"color": "#805900",
+					"name": "Warning",
+					"slug": "warning"
+				},
+				{
+					"color": "#A52834",
+					"name": "Danger",
+					"slug": "danger"
+				}
+			]
+		}
+	}
+}

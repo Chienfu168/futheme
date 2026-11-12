@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"version": 3,
+	"title": "公益珊瑚紅",
+	"slug": "coral-red",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#B63E43",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Primary Contrast",
+					"slug": "primary-contrast"
+				},
+				{
+					"color": "#7A4046",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#25635D",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#FFF1F2",
+					"name": "Surface",
+					"slug": "surface"
+				},
+				{
+					"color": "#17212B",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#52606D",
+					"name": "Muted",
+					"slug": "muted"
+				},
+				{
+					"color": "#778391",
+					"name": "Border",
+					"slug": "border"
+				},
+				{
+					"color": "#17212B",
+					"name": "Focus",
+					"slug": "focus"
+				},
+				{
+					"color": "#21633B",
+					"name": "Success",
+					"slug": "success"
+				},
+				{
+					"color": "#805900",
+					"name": "Warning",
+					"slug": "warning"
+				},
+				{
+					"color": "#A52834",
+					"name": "Danger",
+					"slug": "danger"
+				}
+			]
+		}
+	}
+}

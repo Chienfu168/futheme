@@ -30,6 +30,7 @@ fetch "https://downloads.wordpress.org/release/wordpress-$WP_VERSION.zip" "wordp
 fetch "https://downloads.wordpress.org/plugin/sqlite-database-integration.$SQLITE_PLUGIN_VERSION.zip" "sqlite-$SQLITE_PLUGIN_VERSION.zip" "$SQLITE_PLUGIN_SHA256"
 fetch "https://github.com/wp-cli/wp-cli/releases/download/v$WPCLI_VERSION/wp-cli-$WPCLI_VERSION.phar" "wp-cli-$WPCLI_VERSION.phar" "$WPCLI_SHA256"
 WP="php $CACHE/wp-cli-$WPCLI_VERSION.phar --path=$WEB"
+[[ $EUID -eq 0 ]] && WP="$WP --allow-root"  # 雲端容器以 root 執行
 
 if [[ -f "$WEB/wp-config.php" ]]; then
   echo "已存在：$WEB（要重建請加 --reset）"

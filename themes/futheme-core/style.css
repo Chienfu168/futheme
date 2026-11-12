@@ -1,0 +1,14 @@
+/*
+Theme Name: FuTheme Core
+Theme URI: https://github.com/Chienfu168/futheme
+Description: 多站共用的 Block Theme，十套配色以 Style Variations 在網站編輯器切換。只負責呈現，不含業務邏輯。
+Version: 0.1.0
+Requires at least: 7.1
+Tested up to: 7.1
+Requires PHP: 8.3
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: futheme-core
+*/
+
+/* 樣式寫在 theme.json；此檔只放佈景標頭，前台不載入。 */

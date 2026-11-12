@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/wp/7.1/theme.json",
+	"version": 3,
+	"title": "專業石墨灰",
+	"slug": "graphite",
+	"settings": {
+		"color": {
+			"palette": [
+				{
+					"color": "#374151",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Primary Contrast",
+					"slug": "primary-contrast"
+				},
+				{
+					"color": "#4B5563",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "#175F87",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#FFFFFF",
+					"name": "Base",
+					"slug": "base"
+				},
+				{
+					"color": "#F3F4F6",
+					"name": "Surface",
+					"slug": "surface"
+				},
+				{
+					"color": "#17212B",
+					"name": "Contrast",
+					"slug": "contrast"
+				},
+				{
+					"color": "#52606D",
+					"name": "Muted",
+					"slug": "muted"
+				},
+				{
+					"color": "#778391",
+					"name": "Border",
+					"slug": "border"
+				},
+				{
+					"color": "#17212B",
+					"name": "Focus",
+					"slug": "focus"
+				},
+				{
+					"color": "#21633B",
+					"name": "Success",
+					"slug": "success"
+				},
+				{
+					"color": "#805900",
+					"name": "Warning",
+					"slug": "warning"
+				},
+				{
+					"color": "#A52834",
+					"name": "Danger",
+					"slug": "danger"
+				}
+			]
+		}
+	}
+}
