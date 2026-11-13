@@ -1,6 +1,6 @@
 # 專案狀態
 
-更新：2026-11-12
+更新：2026-11-13
 
 ## 已完成
 
@@ -13,12 +13,13 @@
 | M1 測試環境 | 2026-11-12：setup.sh 執行成功，WordPress 7.1.4＋PHP 8.3.6＋SQLite 3.1.3，前台與登入頁 200 |
 | M1 佈景本體 | 2026-11-12：style.css、theme.json、functions.php、8 個模板、頁首頁尾、繁中翻譯；啟用、十套配色切換與重設、schema、PHP lint、360/1280px 截圖與鍵盤焦點通過，見 [報告](../tests/reports/2026-11-12-m1-core.md) |
 | 測試環境版本查證 | 2026-11-12：WordPress 官方 API 最新正式版仍為 7.1.4；WordPress ZIP 的 SHA1 與官方公布值相符，WP-CLI 2.12.0 的 SHA-256 與官方 `.sha256` 相符；版本與雜湊鎖在 [versions.env](../tests/env/versions.env) |
+| 測試 ZIP | 2026-11-13：應使用者要求提供 `dist/futheme-core-0.1.0-test.zip`（M1 未完成，僅供測試站）；乾淨站後台上傳安裝、啟用、取代更新、回退通過，見 [報告](../tests/reports/2026-11-13-m1-zip-install.md) |
 
 ## 待驗證／進行中
 
 | 項目 | 狀態 |
 | --- | --- |
-| M1 未完成項目 | 三種 Pattern、橫幅、按鈕／卡片／表單元件、CI、ZIP 打包 |
+| M1 未完成項目 | 三種 Pattern、橫幅、按鈕／卡片／表單元件、CI；完成後重新打包驗證 |
 | 網站編輯器 UI | 未實際操作；配色切換以寫入 Global Styles 驗證，編輯器畫面與前台一致性未測 |
 | 首頁 `<h1>` | 目前沒有，待橫幅 hero 補上 |
 | 其他瀏覽器與裝置 | 只測 Chromium；Firefox、Safari、手機實機、200% 縮放未測 |

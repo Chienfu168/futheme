@@ -8,3 +8,10 @@ vendor/
 dist/
 build/
 .wp-test/
+.wp-test-*/
+# 測試 ZIP 例外提交，供 GitHub 下載（正式版改走 Release，M3）
+!dist/
+dist/*
+!dist/futheme-core-*-test.zip
+!dist/futheme-core-*-test.sha256
+!dist/futheme-core-*-test.files.txt

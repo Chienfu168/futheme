@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # 建立一次性本機 WordPress 測試站（PHP 內建伺服器 + SQLite）。
 # 用法：tests/env/setup.sh [--reset]
-# 站台目錄預設 <repo>/.wp-test（已 gitignore），可用 FUTHEME_WP_DIR 改。
+# 站台目錄預設 <repo>/.wp-test（已 gitignore），可用 FUTHEME_WP_DIR、FUTHEME_WP_PORT 改。
 # 不連正式站、不寄信、不跑排程、禁止索引；管理員密碼只印在終端，不寫入檔案。
 set -euo pipefail
 
@@ -65,8 +65,8 @@ PHP
   echo "管理員：admin／$pass（只顯示這一次；忘記時用 wp user update admin --user_pass=...）"
 fi
 
-# 佈景以 symlink 接上，改檔即生效
-for theme in "$ROOT"/themes/*/; do
+# 佈景以 symlink 接上，改檔即生效；FUTHEME_LINK_THEMES=0 時不接（測 ZIP 安裝用）
+[[ "${FUTHEME_LINK_THEMES:-1}" == "1" ]] && for theme in "$ROOT"/themes/*/; do
   name="$(basename "$theme")"
   [[ -f "$theme/style.css" ]] && ln -sfn "$theme" "$WEB/wp-content/themes/$name"
 done
