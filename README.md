@@ -15,6 +15,7 @@
 
 0. [需求確認（本人 2026-11-10）](docs/requirements.md)
 0.5 [採用狀態：哪些網站要用](docs/adoption.md) ← 目前最該先解決的
+0.6 [色彩 slug 是對外契約](docs/color-slug-contract.md) ← 改 token 名稱之前必讀
 1. [架構與技術可行性](docs/architecture.md)
 2. [設計系統及完整配色](docs/design-system.md)
 3. [目錄與檔案規格](docs/file-specification.md)
