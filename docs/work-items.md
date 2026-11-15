@@ -14,31 +14,32 @@
 
 ## M1 核心原型
 
-- [ ] 建立可重現隔離環境，鎖定 WordPress／PHP／資料庫與瀏覽器版本。
-- [~] 建立 style.css、theme.json v3、最少 PHP 與模板（2026-11-10 寫出，**未在 WordPress 驗證**）。
-      text domain futheme-core 已設；原生 Navigation 已用；**「跳至內容」還沒做**。
-- [x] 從 Token 產生十套 styles JSON（2026-11-10）：`scripts/generate_styles.py`。
-      色盤唯一主資料是 design/tokens.json，theme.json 與 styles/ 都由它產生，
-      `--check` 可在 CI 驗證一致性——手寫 130 個欄位打錯 slug 這種錯誤因此不可能發生。
-      schema 版本為 3；產出順序固定所以可重現。
-- [~] 頁首／頁尾 template part 與 index 範本已寫出（2026-11-10，**未在 WordPress 驗證**，
-      區塊標記沒有經過 WordPress 的解析器）。指定模板其餘六種與三種 Patterns 未開始。
+- [x] 建立可重現隔離環境，鎖定 WordPress／PHP／資料庫與瀏覽器版本（2026-11-12，[tests/env](../tests/env/setup.sh)；資料庫為 SQLite，MySQL 留待 M2 副本）。
+- [x] 建立 style.css、theme.json v3、最少 PHP 與模板；正確加入 text domain、跳至內容與原生 Navigation（2026-11-12，[報告](../tests/reports/2026-11-12-m1-core.md)）。
+- [x] 從 Token 產生十套 styles JSON，版本 schema 驗證，檢查 slug 一致與生成結果可重現（2026-11-12，`build_styles.py`、`validate_theme_json.py`）。
+- [ ] 實作頁首／頁尾、指定模板與三種 Patterns；前台不載入示範內容或業務邏輯。
+      （2026-11-12：頁首、頁尾與 8 個模板已完成並實測；hero、服務卡片、聯絡三種 Pattern 未做）
 - [ ] 版型範圍（2026-11-10 確認）：頁首、頁尾選單、首頁、一般頁面、多文章頁面（index／archive／search）、單篇文章。
 - [ ] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅。圖片由各站後台設定，**不寫死在佈景裡**；
       須處理未設定時的 fallback、裁切與手機顯示、橫幅上文字在十套配色下的對比，以及圖片效能。
 - [ ] 實作按鈕、卡片、表單契約與 fixture，含 hover、focus、disabled、error；保留原生表單語意。
 - [ ] 驗證編輯器與前台一致、手動改色與字型、儲存、切換、重設及 DB 覆寫行為。
+      （2026-11-15：編輯器內切換＋儲存通過，見 [報告](../tests/reports/2026-11-15-merge-editor.md)；手動改色字型、編輯器重設、逐項比對未測）
 - [ ] 驗證 RWD、鍵盤、對比及錯誤狀態；以 PHP lint、WPCS、JSON/schema 與 WordPress 安裝驗證建立 CI。
 - [ ] 打包 Core 測試 ZIP，在乾淨站安裝、啟用、更新及回退，保存證據。
+      （2026-11-13：應使用者要求先出 `0.1.0-test`，上傳安裝、啟用、同版本取代、回退通過，見 [報告](../tests/reports/2026-11-13-m1-zip-install.md)；M1 其他項目完成後需重新打包驗證）
 
 完成條件：可安裝原型、十套可選配色與三種元件，無重大 PHP/JS 錯誤；M2 整合與效能仍可待驗。
 
 ## M2 雙站與外掛
 
-- [ ] 取得去識別 UR 隔離副本、主機版本與 AI Assistant 原始碼；盤點 Sydney 移轉風險。
+第一個採用網站：**fudawang.com**（2026-11-15 本人決定，見 [採用狀態](adoption.md)）。UR 是否換 FuTheme 仍未決，M2 不假設 UR 會用。
+
+- [ ] 盤點 fudawang.com：現用佈景、外掛、選單／小工具／額外 CSS、首頁內容、主機 PHP 與資料庫版本。
+- [ ] 取得 fudawang 去識別隔離副本，在副本上換 FuTheme，盤點移轉風險；不碰正式站。
 - [ ] 建立教育／公益示範內容，以不同配色確認兩站互不影響。
 - [ ] 實作選用 Bridge、按需載入及無 Bridge fallback；驗證動態內容與編輯器。
-- [ ] 實作一種 UR 外掛整合，在 FuTheme／官方佈景、Bridge 開關、預設／手動配色下檢查。
+- [ ] 實作一種外掛整合（候選：ur-calc，已讀取色彩變數，見 [slug 契約](color-slug-contract.md)），在 FuTheme／官方佈景、Bridge 開關、預設／手動配色下檢查。
 - [ ] 依效能方案比較三套佈景與四種頁面，調查超預算或持續退步。
 - [ ] 保存相容性、安全與無障礙報告；任何無法取得的實際副本項目維持未測。
 

@@ -3,22 +3,15 @@ Theme Name: FuTheme Core
 Theme URI: https://github.com/Chienfu168/futheme
 Author: FuDaWang
 Author URI: https://www.fudawang.com
-Description: 跨站共用的 Block Theme。十套可在後台切換的配色，各站用自己的橫幅圖片區隔風格。
-Requires at least: 6.6
-Tested up to: 7.1
-Requires PHP: 7.4
+Description: 多站共用的 Block Theme，十套配色以 Style Variations 在網站編輯器切換。只負責呈現，不含業務邏輯。
 Version: 0.1.0
+Requires at least: 7.1
+Tested up to: 7.1
+Requires PHP: 8.3
 License: GNU General Public License v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: futheme-core
-Tags: block-theme, full-site-editing, style-variations, accessibility-ready
+Tags: block-theme, full-site-editing, style-variations
 */
 
-/*
-   這個檔案刻意幾乎是空的。
-   Block Theme 的樣式來源是 theme.json 與 styles/ 底下的 Style Variations，
-   不是這裡。寫在這裡的 CSS 繞過 Global Styles，使用者在網站編輯器改不動，
-   那正是這個專案要避免的事（見 docs/requirements.md 第二節）。
-
-   只有原生 theme.json 真的做不到的，才寫進 assets/ 並說明為什麼。
-*/
+/* 樣式寫在 theme.json；此檔只放佈景標頭，前台不載入。 */

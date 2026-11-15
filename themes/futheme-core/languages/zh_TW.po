@@ -1,0 +1,130 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FuTheme Core 0.1.0\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Domain: futheme-core\n"
+
+msgid "FuTheme Core"
+msgstr "FuTheme Core"
+
+msgid "FuTheme"
+msgstr "FuTheme"
+
+msgctxt "Pattern title"
+msgid "404"
+msgstr "404"
+
+msgctxt "Pattern title"
+msgid "Front page latest heading"
+msgstr "首頁最新消息標題"
+
+msgctxt "Pattern title"
+msgid "No results"
+msgstr "沒有內容"
+
+msgctxt "Pattern title"
+msgid "No search results"
+msgstr "沒有搜尋結果"
+
+msgid "Page not found"
+msgstr "找不到這個頁面"
+
+msgid "The page you are looking for may have been moved or removed. Try searching instead."
+msgstr "你要找的頁面可能已經移動或刪除，試試用搜尋找看看。"
+
+msgid "Latest news"
+msgstr "最新消息"
+
+msgid "There is nothing here yet."
+msgstr "這裡還沒有內容。"
+
+msgid "No results matched your search. Try different keywords."
+msgstr "找不到符合的結果，請換個關鍵字試試。"
+
+msgctxt "Template part name"
+msgid "Header"
+msgstr "頁首"
+
+msgctxt "Template part name"
+msgid "Footer"
+msgstr "頁尾"
+
+msgctxt "Font family name"
+msgid "System"
+msgstr "系統字型"
+
+msgctxt "Font size name"
+msgid "Small"
+msgstr "小"
+
+msgctxt "Font size name"
+msgid "Medium"
+msgstr "中"
+
+msgctxt "Font size name"
+msgid "Large"
+msgstr "大"
+
+msgctxt "Font size name"
+msgid "Extra Large"
+msgstr "特大"
+
+msgctxt "Font size name"
+msgid "Huge"
+msgstr "超大"
+
+msgctxt "Color name"
+msgid "Primary"
+msgstr "主色"
+
+msgctxt "Color name"
+msgid "Primary Contrast"
+msgstr "主色上的文字"
+
+msgctxt "Color name"
+msgid "Secondary"
+msgstr "次要色"
+
+msgctxt "Color name"
+msgid "Accent"
+msgstr "強調色"
+
+msgctxt "Color name"
+msgid "Base"
+msgstr "底色"
+
+msgctxt "Color name"
+msgid "Surface"
+msgstr "區塊底色"
+
+msgctxt "Color name"
+msgid "Contrast"
+msgstr "文字色"
+
+msgctxt "Color name"
+msgid "Muted"
+msgstr "次要文字"
+
+msgctxt "Color name"
+msgid "Border"
+msgstr "邊框"
+
+msgctxt "Color name"
+msgid "Focus"
+msgstr "焦點框"
+
+msgctxt "Color name"
+msgid "Success"
+msgstr "成功"
+
+msgctxt "Color name"
+msgid "Warning"
+msgstr "警告"
+
+msgctxt "Color name"
+msgid "Danger"
+msgstr "錯誤"

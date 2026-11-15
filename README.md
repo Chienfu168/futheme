@@ -1,15 +1,20 @@
 # FuTheme Framework
 
-版本：0.1.0｜建立日期：2026-11-02｜階段：M1 進行中
+版本：0.1.0｜建立日期：2026-11-02｜階段：M1 核心原型（進行中）
 
-共用 Block Theme、十套品牌配色與外掛視覺契約。
+共用 Block Theme、十套品牌配色與外掛視覺契約。目前 `themes/futheme-core` 已可在測試站啟用並切換十套配色，但 M1 尚未完成（Pattern、橫幅、元件、CI、ZIP），**不可用於正式網站**；未連接或修改任何正式網站。
 
-2026-11-10：`themes/futheme-core/` 有了第一版檔案——theme.json v3、十套 Style Variations、
-頁首頁尾與 index 範本。**但這些檔案一次都沒有在 WordPress 裡跑過**，
-也還沒碰過任何正式網站。靜態檢查全過只代表檔案寫得對，不代表 WordPress 吃得下。
+## 測試版下載安裝
 
-下一步就一件事：裝進乾淨站台，確認十套配色真的能在「外觀 → 編輯器 → 樣式」切換。
-整個規劃建立在這個假設上，而它還沒被驗證（見 [docs/status.md](docs/status.md)）。
+**僅供測試站**，M1 尚未完成（沒有橫幅、Pattern、元件），不要裝在正式網站。
+
+1. 在 GitHub 開啟 [dist/futheme-core-0.1.0-test.zip](dist/futheme-core-0.1.0-test.zip)，按右上角下載（Download raw file）。
+   不要用 repo 首頁的「Code → Download ZIP」，那是整個專案，WordPress 無法安裝。
+2. 可比對 SHA-256：[futheme-core-0.1.0-test.sha256](dist/futheme-core-0.1.0-test.sha256)。
+3. WordPress 後台「外觀 → 佈景主題 → 安裝佈景主題 → 上傳佈景主題」，選 ZIP，安裝後啟用。
+4. 換配色：「外觀 → 編輯器 → 樣式」選一套後儲存。
+
+需求：WordPress 7.1 以上、PHP 8.3 以上（只測過這個組合）。
 
 ## 閱讀順序
 
@@ -28,18 +33,14 @@
 
 ## 本機驗證
 
-在專案根目錄執行：
-
-```sh
-python3 scripts/validate_spec.py              # 規格連結、Token 完整性、色彩對比
-python3 scripts/generate_styles.py --check    # theme.json 與 styles/ 跟 tokens.json 一致
+```bash
+python3 scripts/validate_spec.py       # Token、對比、文件連結
+python3 scripts/build_styles.py --check # theme.json／styles 與 Token 一致
+python3 scripts/validate_theme_json.py  # theme.json schema
+bash tests/env/setup.sh                 # 建立本機測試站（.wp-test/）
 ```
 
-色盤的唯一主資料是 `design/tokens.json`。`themes/futheme-core/theme.json` 與
-`themes/futheme-core/styles/*.json` 都由 `scripts/generate_styles.py` 產生，不要手改——
-改了 `--check` 會擋下來。要換顏色就改 tokens.json 再重新產生。
-
-這兩個檢查都不代表 WordPress 執行、效能、無障礙或外掛整合已通過。
+色盤唯一主資料是 `design/tokens.json`。theme.json 的色盤與 `styles/*.json` 由 `python3 scripts/build_styles.py` 產生，不要手改，`--check` 會擋下不一致；theme.json 其餘欄位手動維護。靜態檢查不代表效能、無障礙或外掛整合已通過，實測證據見 `tests/reports/`。
 
 首輪目標 WordPress 7.1.4；不宣稱向下相容。實作前再次確認官方修補版與 PHP 要求。UR 原有 Sydney 優化工作不因本專案而自動變更。
 
@@ -47,4 +48,6 @@ python3 scripts/generate_styles.py --check    # theme.json 與 styles/ 跟 token
 2026-11-10 由 `WP_Themes` 改名接手——舊的傳統 PHP 骨架沒有網站在用，也做不到「配色後台切換」，
 已移除並留在 git 歷史（`b58ca3b`）。共用佈景只有一套，不開第二個 repo。
 
-下一步：把 `themes/futheme-core/` 裝進乾淨站台驗證配色切換。UR 隔離副本及 UR AI Assistant 原始碼尚未取得（M2 依賴）；正式部署未建立。
+第一個採用網站：**fudawang.com**（2026-11-15 決定，見 [採用狀態](docs/adoption.md)）。
+
+下一步：M1 的 Pattern、橫幅與元件。UR 隔離副本及 UR AI Assistant 原始碼尚未取得（M2 依賴）；正式部署未建立。
