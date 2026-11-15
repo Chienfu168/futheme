@@ -22,8 +22,9 @@
 
 ## 更新機制：現在沒有，而且建議先不要做
 
-佈景目前沒有任何更新通知。`style.css` 只有版本號，沒有 `Update URI`，
-所以裝上去的站不會知道有新版——要更新只能手動上傳 ZIP。
+佈景目前沒有任何更新通知，要更新只能手動上傳 ZIP。
+2026-11-15 起 `style.css` 有 `Update URI: https://github.com/Chienfu168/futheme`，但目前**沒有**對應的 `update_themes_github.com` 處理，
+它的作用只是防止 WordPress 拿 wordpress.org 上同名的佈景來比對更新（萬一有人註冊 `futheme`，各站就會被提示「更新」成別人的佈景）。
 
 ### 做得到，但沒有官方管道
 
@@ -50,7 +51,7 @@ WordPress 的自動更新 UI 綁的是 wordpress.org。私人佈景走不了那�
 ### 所以順序是
 
 1. 先讓「這個站跑哪一版、有沒有被手改過」看得出來。
-   版本常數 `FUTHEME_CORE_VERSION` 已經有了；還缺一個能列出資料庫裡
+   版本常數 `FUTHEME_VERSION` 已經有了；還缺一個能列出資料庫裡
    存了哪些 Global Styles 覆寫的小工具。有了它才知道一次更新推下去會發生什麼。
 2. 等第一個網站真的裝上去、配色切換也驗過之後，再決定要不要自動更新。
 

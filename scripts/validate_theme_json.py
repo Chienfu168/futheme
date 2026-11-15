@@ -12,7 +12,7 @@ from pathlib import Path
 import jsonschema
 
 ROOT = Path(__file__).resolve().parents[1]
-THEME = ROOT / "themes/futheme-core"
+THEME = ROOT / "themes/futheme"
 env = dict(
     line.split("=", 1)
     for line in (ROOT / "tests/env/versions.env").read_text().splitlines()

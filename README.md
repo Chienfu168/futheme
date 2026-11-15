@@ -2,17 +2,18 @@
 
 版本：0.1.0｜建立日期：2026-11-02｜階段：M1 核心原型（進行中）
 
-共用 Block Theme、十套品牌配色與外掛視覺契約。目前 `themes/futheme-core` 已可在測試站啟用並切換十套配色，但 M1 尚未完成（Pattern、橫幅、元件、CI、ZIP），**不可用於正式網站**；未連接或修改任何正式網站。
+共用 Block Theme、十套品牌配色與外掛視覺契約。目前 `themes/futheme` 已可在測試站啟用並切換十套配色，但 M1 尚未完成（Pattern、橫幅、元件、CI、ZIP），**不可用於正式網站**；未連接或修改任何正式網站。
 
 ## 測試版下載安裝
 
 **僅供測試站**，M1 尚未完成（沒有橫幅、Pattern、元件），不要裝在正式網站。
 
-1. 在 GitHub 開啟 [dist/futheme-core-0.1.0-test.zip](dist/futheme-core-0.1.0-test.zip)，按右上角下載（Download raw file）。
+1. 在 GitHub 開啟 [dist/futheme-0.1.0-test.zip](dist/futheme-0.1.0-test.zip)，按右上角下載（Download raw file）。
    不要用 repo 首頁的「Code → Download ZIP」，那是整個專案，WordPress 無法安裝。
-2. 可比對 SHA-256：[futheme-core-0.1.0-test.sha256](dist/futheme-core-0.1.0-test.sha256)。
+2. 可比對 SHA-256：[futheme-0.1.0-test.sha256](dist/futheme-0.1.0-test.sha256)。
 3. WordPress 後台「外觀 → 佈景主題 → 安裝佈景主題 → 上傳佈景主題」，選 ZIP，安裝後啟用。
 4. 換配色：「外觀 → 編輯器 → 樣式」選一套後儲存。
+5. 如果之前裝過舊名稱「FuTheme Core」（`futheme-core`），新版會另外裝成「FuTheme」，舊的那個可直接刪除（沒啟用過就沒有影響）。
 
 需求：WordPress 7.1 以上、PHP 8.3 以上（只測過這個組合）。
 

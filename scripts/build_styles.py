@@ -13,7 +13,7 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-THEME = ROOT / "themes/futheme-core"
+THEME = ROOT / "themes/futheme"
 SCHEMA = "https://schemas.wp.org/wp/7.1/theme.json"
 # 色盤順序與編輯器顯示名稱；slug 為公開介面，變更需記錄相容性
 ROLES = [
