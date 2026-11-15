@@ -48,6 +48,7 @@ define( 'AUTOMATIC_UPDATER_DISABLED', true );
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 define( 'WP_DEBUG_DISPLAY', false );
+define( 'WP_DEVELOPMENT_MODE', 'theme' ); // 不快取佈景的 theme.json 與 Pattern，改檔即生效
 PHP
   pass="$(php -r 'echo bin2hex(random_bytes(12));')"
   $WP core install --url="$URL" --title="FuTheme 測試站" --admin_user=admin \
