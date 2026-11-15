@@ -19,6 +19,8 @@
 ## 閱讀順序
 
 0. [需求確認（本人 2026-11-10）](docs/requirements.md)
+0.5 [採用狀態：哪些網站要用](docs/adoption.md) ← 目前最該先解決的
+0.6 [色彩 slug 是對外契約](docs/color-slug-contract.md) ← 改 token 名稱之前必讀
 1. [架構與技術可行性](docs/architecture.md)
 2. [設計系統及完整配色](docs/design-system.md)
 3. [目錄與檔案規格](docs/file-specification.md)
@@ -38,12 +40,14 @@ python3 scripts/validate_theme_json.py  # theme.json schema
 bash tests/env/setup.sh                 # 建立本機測試站（.wp-test/）
 ```
 
-改 `design/tokens.json` 後執行 `python3 scripts/build_styles.py` 重新產生配色檔。靜態檢查不代表效能、無障礙或外掛整合已通過，實測證據見 `tests/reports/`。
+色盤唯一主資料是 `design/tokens.json`。theme.json 的色盤與 `styles/*.json` 由 `python3 scripts/build_styles.py` 產生，不要手改，`--check` 會擋下不一致；theme.json 其餘欄位手動維護。靜態檢查不代表效能、無障礙或外掛整合已通過，實測證據見 `tests/reports/`。
 
 首輪目標 WordPress 7.1.4；不宣稱向下相容。實作前再次確認官方修補版與 PHP 要求。UR 原有 Sydney 優化工作不因本專案而自動變更。
 
 儲存庫：[Chienfu168/futheme](https://github.com/Chienfu168/futheme)（私人）。
 2026-11-10 由 `WP_Themes` 改名接手——舊的傳統 PHP 骨架沒有網站在用，也做不到「配色後台切換」，
 已移除並留在 git 歷史（`b58ca3b`）。共用佈景只有一套，不開第二個 repo。
+
+第一個採用網站：**fudawang.com**（2026-11-15 決定，見 [採用狀態](docs/adoption.md)）。
 
 下一步：M1 的 Pattern、橫幅與元件。UR 隔離副本及 UR AI Assistant 原始碼尚未取得（M2 依賴）；正式部署未建立。
