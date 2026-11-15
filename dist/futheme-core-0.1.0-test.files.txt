@@ -9,6 +9,7 @@ futheme-core/patterns/hidden-404.php
 futheme-core/patterns/hidden-front-latest.php
 futheme-core/patterns/hidden-no-results.php
 futheme-core/patterns/hidden-no-search-results.php
+futheme-core/screenshot.png
 futheme-core/style.css
 futheme-core/styles/aqua-blue.json
 futheme-core/styles/business-green.json

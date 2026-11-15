@@ -40,3 +40,8 @@
 
 - 在編輯器內手動改單一顏色與字型、編輯器「重設」按鈕、編輯器畫面與前台的逐項視覺比對。
 - Firefox、Safari、手機實機；MySQL。
+
+## 補：佈景縮圖（2026-11-15）
+
+使用者在後台看到 FuTheme 沒有縮圖：佈景缺 `screenshot.png`。以測試站首頁 1200×900 截圖補上（如實呈現目前尚無橫幅的樣子，M1 完成後要換）。
+重打 ZIP：32 檔，SHA-256 `694487f5d8a1385615ab68245a2895d04e47c0131506a817bd014fffb5948d2f`；乾淨站 `wp theme install --force` 後 `get_screenshot()` 回傳網址，HTTP 200 image/png。
