@@ -36,3 +36,16 @@
 靜態工具檢查 contrast、muted、primary、secondary、accent、success、warning、danger 對 base/surface ≥4.5:1；所有實心色與白字 ≥4.5:1；border/focus 對 base/surface ≥3:1。一般文字採 4.5:1，即使大字可放寬也不降低此預設。
 
 這些值只覆蓋指定預設配對；不涵蓋圖片、透明疊色、第三方樣式或任意使用者修改。M1 必須額外驗證實際 DOM、鍵盤與視覺狀態。首版沒有自動產生對比色功能。
+
+## 佈景使用的 fu- 類別（0.2.0，2026-11-15）
+
+| 類別 | 用途 | 相容性 |
+| --- | --- | --- |
+| `.fu-banner` | 首頁大橫幅與單篇／單頁頁首橫幅（Cover 區塊）。沒有圖片時遮罩改為主色實心；有圖片時為 70% contrast 遮罩 | 佈景內部，外掛不應依賴 |
+| `.fu-card` | 文章卡片：surface 底、0.375rem 圓角、等高；沒有精選圖片時上方顯示 16:9 淡主色區塊（`color-mix`，純裝飾） | 與上方卡片契約一致，但**未加 border 邊框**：surface 底已足以區隔，深色 border 在卡片格線上過重；Bridge 的 `.fu-card` 是否加邊框另議 |
+| `.fu-site-header` | 頁首，上緣 4px 主色線 | 佈景內部 |
+| `.fu-site-footer` | 頁尾，secondary 底、primary-contrast 文字與連結 | 佈景內部 |
+
+深色區塊（`.fu-banner`、`.fu-site-footer`）的焦點框反轉為白色外框＋focus 色內圈，白色對主色最低 5.59:1、對 secondary 最低 7.39:1。
+
+橫幅文字對比（計算值，見 [報告](../tests/reports/2026-11-15-visual.md)）：無圖片時 primary-contrast／primary 最低 5.59:1；有圖片時最差情況（全白圖片＋70% `#17212B`）6.00:1。

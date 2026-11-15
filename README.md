@@ -6,14 +6,17 @@
 
 ## 測試版下載安裝
 
-**僅供測試站**，M1 尚未完成（沒有橫幅、Pattern、元件），不要裝在正式網站。
+**僅供測試站**，M1 尚未完成（服務卡片、聯絡 Pattern、表單元件、CI 未做），不要裝在正式網站。
 
-1. 在 GitHub 開啟 [dist/futheme-0.1.0-test.zip](dist/futheme-0.1.0-test.zip)，按右上角下載（Download raw file）。
+0.2.0 起有首頁大橫幅、文章卡片、單篇／單頁頁首橫幅與深色頁尾。首頁橫幅的圖片在「外觀 → 編輯器 → 範本 → 首頁」點橫幅換圖；單篇／單頁橫幅用文章的「精選圖片」。沒設圖片時顯示目前配色的主色。
+
+1. 在 GitHub 開啟 [dist/futheme-0.2.0-test.zip](dist/futheme-0.2.0-test.zip)，按右上角下載（Download raw file）。
    不要用 repo 首頁的「Code → Download ZIP」，那是整個專案，WordPress 無法安裝。
-2. 可比對 SHA-256：[futheme-0.1.0-test.sha256](dist/futheme-0.1.0-test.sha256)。
+2. 可比對 SHA-256：[futheme-0.2.0-test.sha256](dist/futheme-0.2.0-test.sha256)。
 3. WordPress 後台「外觀 → 佈景主題 → 安裝佈景主題 → 上傳佈景主題」，選 ZIP，安裝後啟用。
 4. 換配色：「外觀 → 編輯器 → 樣式」選一套後儲存。
-5. 如果之前裝過舊名稱「FuTheme Core」（`futheme-core`），新版會另外裝成「FuTheme」，舊的那個可直接刪除（沒啟用過就沒有影響）。
+5. 從 0.1.0 升級：直接上傳新 ZIP，選「使用已上傳版本取代已安裝版本」。
+6. 如果之前裝過舊名稱「FuTheme Core」（`futheme-core`），新版會另外裝成「FuTheme」，舊的那個可直接刪除（沒啟用過就沒有影響）。
 
 需求：WordPress 7.1 以上、PHP 8.3 以上（只測過這個組合）。
 
