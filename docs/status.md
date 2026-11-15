@@ -16,7 +16,8 @@
 | M1 佈景本體 | 2026-11-12：style.css、theme.json、functions.php、8 個模板、頁首頁尾、繁中翻譯；啟用、十套配色切換與重設、schema、PHP lint、360/1280px 截圖與鍵盤焦點通過，見 [報告](../tests/reports/2026-11-12-m1-core.md) |
 | 測試環境版本查證 | 2026-11-12：WordPress 官方 API 最新正式版仍為 7.1.4；WordPress ZIP 的 SHA1 與官方公布值相符，WP-CLI 2.12.0 的 SHA-256 與官方 `.sha256` 相符；版本與雜湊鎖在 [versions.env](../tests/env/versions.env) |
 | 網站編輯器切換配色 | 2026-11-15：瀏覽器實際操作「樣式 → 瀏覽樣式」選石墨灰並儲存，前台 13 色相符，見 [報告](../tests/reports/2026-11-15-merge-editor.md) |
-| 測試 ZIP | 2026-11-15 合併後重打並以取代更新驗證；2026-11-13：應使用者要求提供 `dist/futheme-core-0.1.0-test.zip`（M1 未完成，僅供測試站）；乾淨站後台上傳安裝、啟用、取代更新、回退通過，見 [報告](../tests/reports/2026-11-13-m1-zip-install.md) |
+| 佈景改名 | 2026-11-15 本人決定：名稱 `FuTheme`、代號 `futheme`（原 `futheme-core`），加 `Update URI`、`screenshot.png`；改名後全部重測通過，見 [報告](../tests/reports/2026-11-15-merge-editor.md) |
+| 測試 ZIP | 2026-11-15 改名後為 `dist/futheme-0.1.0-test.zip`；合併後重打並以取代更新驗證；2026-11-13：應使用者要求提供 `dist/futheme-core-0.1.0-test.zip`（M1 未完成，僅供測試站）；乾淨站後台上傳安裝、啟用、取代更新、回退通過，見 [報告](../tests/reports/2026-11-13-m1-zip-install.md) |
 
 ## 待驗證／進行中
 

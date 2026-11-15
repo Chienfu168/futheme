@@ -1,6 +1,6 @@
 # 測試 ZIP 上傳安裝（2026-11-13）
 
-> 2026-11-15 合併 main 後重新打包，雜湊已變更，見 [合併報告](2026-11-15-merge-editor.md)。下表為 11-13 當時的檔案。
+> 2026-11-15 佈景代號改為 `futheme`，下列 `futheme-core` 檔案已從 repo 移除；同日合併 main 後亦曾重新打包，雜湊已變更，見 [合併報告](2026-11-15-merge-editor.md)。下表為 11-13 當時的檔案。
 
 使用者要求先提供可從 GitHub 下載安裝的版本，M1 尚未完成，因此檔名標 `-test`，僅供測試站。
 
@@ -8,9 +8,9 @@
 
 | 項目 | 值 |
 | --- | --- |
-| ZIP | [dist/futheme-core-0.1.0-test.zip](../../dist/futheme-core-0.1.0-test.zip)，31 檔，19,157 bytes |
+| ZIP | `dist/futheme-core-0.1.0-test.zip`（已移除），31 檔，19,157 bytes |
 | SHA-256 | `eaf727b5a095b856d70136cd401264f60e21424d3075e22d35dffc877f3cb7de` |
-| 檔案清單 | [futheme-core-0.1.0-test.files.txt](../../dist/futheme-core-0.1.0-test.files.txt) |
+| 檔案清單 | `futheme-core-0.1.0-test.files.txt`（已移除） |
 | 產生方式 | `python3 scripts/package_theme.py test`；連續兩次產生相同雜湊 |
 
 ## 環境

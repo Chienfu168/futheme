@@ -1,4 +1,4 @@
-# FuTheme Core
+# FuTheme
 
 Block Theme 本體（M1 進行中，未完成，不可用於正式網站）。規格見 ../../docs/file-specification.md。
 
