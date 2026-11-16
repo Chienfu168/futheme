@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'FUTHEME_VERSION' ) ) {
-	define( 'FUTHEME_VERSION', '0.2.1' );
+	define( 'FUTHEME_VERSION', '0.3.0' );
 }
 
 /**
@@ -111,6 +111,8 @@ function futheme_collapse_long_fallback_nav( array $block ): array {
 		&& 'never' !== ( $block['attrs']['overlayMenu'] ?? 'mobile' )
 		&& futheme_fallback_nav_is_long() ) {
 		$block['attrs']['overlayMenu'] = 'always';
+		// 桌機上只有一個漢堡圖示不易辨認，改顯示文字「選單」。
+		$block['attrs']['hasIcon'] = false;
 	}
 	return $block;
 }
@@ -131,3 +133,56 @@ function futheme_hide_long_fallback_nav( string $content, array $block ): string
 	return $content;
 }
 add_filter( 'render_block_core/navigation', 'futheme_hide_long_fallback_nav', 10, 2 );
+
+/**
+ * 預設橫幅圖：首頁大橫幅與單篇／單頁頁首橫幅（.fu-banner）沒有設定圖片時使用。
+ *
+ * 圖片為灰階抽象城市剪影（佈景自帶、原創），疊 80% 主色遮罩，所以跟著配色變色；
+ * 主色遮罩下文字最低對比 4.81:1（十套配色、計算值）。
+ * 站長在編輯器設定橫幅圖或文章精選圖片後，以站長的圖為準。
+ * 不要預設圖時：add_filter( 'futheme_default_banner', '__return_false' );
+ *
+ * @param string $content 區塊輸出。
+ * @param array  $block   解析後的區塊。
+ */
+function futheme_default_banner_image( string $content, array $block ): string {
+	$class = (string) ( $block['attrs']['className'] ?? '' );
+	if ( ! preg_match( '/(^|\s)fu-banner(\s|$)/', $class )
+		|| str_contains( $content, 'wp-block-cover__image-background' )
+		|| str_contains( $content, 'wp-block-cover__video-background' )
+		|| ! apply_filters( 'futheme_default_banner', true ) ) {
+		return $content;
+	}
+	$base = get_theme_file_uri( 'assets/images/' );
+	$img  = sprintf(
+		'<img class="wp-block-cover__image-background fu-banner__default-image" alt="" src="%1$s" srcset="%1$s 1920w, %2$s 960w" sizes="100vw" width="1920" height="800" decoding="async" fetchpriority="high" />',
+		esc_url( $base . 'banner-1920.webp' ),
+		esc_url( $base . 'banner-960.webp' )
+	);
+	// 放在遮罩 <span> 之後，和 WordPress 自己輸出的 Cover 圖片位置相同。
+	$out = preg_replace( '#(<span[^>]*wp-block-cover__background[^>]*></span>)#', '$1' . $img, $content, 1, $count );
+	if ( 1 !== $count ) {
+		return $content;
+	}
+	$tags = new WP_HTML_Tag_Processor( $out );
+	if ( $tags->next_tag() ) {
+		$tags->add_class( 'fu-banner--default' );
+	}
+	return $tags->get_updated_html();
+}
+add_filter( 'render_block_core/cover', 'futheme_default_banner_image', 10, 2 );
+
+/**
+ * 頁尾版權年份：段落加 fu-copyright 類別時，把 © 後的年份換成今年，
+ * 站長在編輯器儲存頁尾後也不會停在舊年份。
+ *
+ * @param string $content 區塊輸出。
+ * @param array  $block   解析後的區塊。
+ */
+function futheme_copyright_year( string $content, array $block ): string {
+	if ( ! str_contains( (string) ( $block['attrs']['className'] ?? '' ), 'fu-copyright' ) ) {
+		return $content;
+	}
+	return (string) preg_replace( '/©\s*\d{4}/u', '© ' . wp_date( 'Y' ), $content, 1 );
+}
+add_filter( 'render_block_core/paragraph', 'futheme_copyright_year', 10, 2 );

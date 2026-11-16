@@ -45,6 +45,9 @@
 | `.fu-card` | 文章卡片：surface 底、0.375rem 圓角、等高；沒有精選圖片時上方顯示 16:9 淡主色區塊（`color-mix`，純裝飾） | 與上方卡片契約一致，但**未加 border 邊框**：surface 底已足以區隔，深色 border 在卡片格線上過重；Bridge 的 `.fu-card` 是否加邊框另議 |
 | `.fu-site-header` | 頁首，上緣 4px 主色線 | 佈景內部 |
 | `.fu-site-footer` | 頁尾，secondary 底、primary-contrast 文字與連結 | 佈景內部 |
+| `.fu-banner--default`（0.3.0） | 橫幅未設定圖片時由 PHP 加上：插入佈景自帶灰階圖 `assets/images/banner-*.webp`，遮罩改為 80% primary | 佈景內部；可用 `futheme_default_banner` 濾鏡關閉 |
+| `.fu-site-footer__bottom`（0.3.0） | 頁尾底列：上緣 30% primary-contrast 細線，放版權 | 佈景內部 |
+| `.fu-copyright`（0.3.0） | 段落類別：前台把「© 年份」換成今年 | 佈景內部 |
 
 深色區塊（`.fu-banner`、`.fu-site-footer`）的焦點框反轉為白色外框＋focus 色內圈，白色對主色最低 5.59:1、對 secondary 最低 7.39:1。
 

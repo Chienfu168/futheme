@@ -1,4 +1,6 @@
 futheme/README.md
+futheme/assets/images/banner-1920.webp
+futheme/assets/images/banner-960.webp
 futheme/functions.php
 futheme/languages/futheme.pot
 futheme/languages/zh_TW.mo
