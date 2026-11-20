@@ -33,7 +33,7 @@
 
 ## M2 雙站與外掛
 
-第一個採用網站：**fudawang.com**（2026-11-15 本人決定，見 [採用狀態](adoption.md)）。UR 是否換 FuTheme 仍未決，M2 不假設 UR 會用。
+第一個採用網站：**fudawang.com**（2026-11-15 本人決定）。UR 是否換 FuTheme 仍未決，M2 不假設 UR 會用。
 
 - [ ] 盤點 fudawang.com：現用佈景、外掛、選單／小工具／額外 CSS、首頁內容、主機 PHP 與資料庫版本。
 - [ ] 取得 fudawang 去識別隔離副本，在副本上換 FuTheme，盤點移轉風險；不碰正式站。

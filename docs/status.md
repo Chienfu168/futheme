@@ -7,7 +7,7 @@
 | 項目 | 證據 |
 | --- | --- |
 | M0 規格與骨架 | README、docs、design 與 scripts |
-| 第一個採用網站 | 2026-11-15 本人決定：**fudawang.com**，見 [採用狀態](adoption.md) |
+| 第一個採用網站 | 2026-11-15 本人決定：**fudawang.com** |
 | 合併平行的 M1 | 2026-11-15：`main` 上 2026-11-10～14 的平行工作（未經 WordPress 驗證的佈景檔、採用狀態、色彩 slug 契約、更新機制分析）併入。佈景檔以已實測版本為準，補入 `FUTHEME_CORE_VERSION` 與 post-thumbnails；配色產生器保留 `build_styles.py`，移除會整份覆寫 theme.json 的 `generate_styles.py` |
 | 使用者確認 M0 規格 | 2026-11-10，見 [需求確認](requirements.md)；版型範圍與橫幅需求同日確認 |
 | 舊 WP_Themes 處理 | 2026-11-10 改名為 `Chienfu168/futheme`，舊 PHP 骨架移除，留在 git 歷史（`b58ca3b`） |
@@ -38,7 +38,7 @@
 | --- | --- |
 | 網路限制 | 雲端容器連不到 schemas.wp.org 與 develop.svn.wordpress.org；schema 改從 GitHub 取並鎖雜湊，theme.json 翻譯字串手動維護 |
 | 資料庫差異 | 雲端容器沒有 Docker daemon 與 MySQL，M1 先用 SQLite；正式主機用 MySQL/MariaDB，資料庫相關行為須在 M2 隔離副本再驗 |
-| UR 採用方向 | 未決：UR 原計畫沿用 Sydney，與 FuTheme 不相容，見 [採用狀態](adoption.md)；第一個採用者改為 fudawang，不再阻擋 M2 |
+| UR 採用方向 | 未決；第一個採用者為 fudawang，不阻擋 M2 |
 | UR 隔離副本 | 未取得；UR 未決前不需要 |
 | UR AI Assistant 原始碼 | 未取得；不假設既有交接文件含原始碼 |
 | GitHub Release | 未建立，M3 處理 |

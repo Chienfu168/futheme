@@ -25,7 +25,6 @@
 ## 閱讀順序
 
 0. [需求確認（本人 2026-11-10）](docs/requirements.md)
-0.5 [採用狀態：哪些網站要用](docs/adoption.md) ← 目前最該先解決的
 0.6 [色彩 slug 是對外契約](docs/color-slug-contract.md) ← 改 token 名稱之前必讀
 1. [架構與技術可行性](docs/architecture.md)
 2. [設計系統及完整配色](docs/design-system.md)
@@ -54,6 +53,6 @@ bash tests/env/setup.sh                 # 建立本機測試站（.wp-test/）
 2026-11-10 由 `WP_Themes` 改名接手——舊的傳統 PHP 骨架沒有網站在用，也做不到「配色後台切換」，
 已移除並留在 git 歷史（`b58ca3b`）。共用佈景只有一套，不開第二個 repo。
 
-第一個採用網站：**fudawang.com**（2026-11-15 決定，見 [採用狀態](docs/adoption.md)）。
+第一個採用網站：**fudawang.com**（2026-11-15 決定）。
 
 下一步：M1 的 Pattern、橫幅與元件。UR 隔離副本及 UR AI Assistant 原始碼尚未取得（M2 依賴）；正式部署未建立。
