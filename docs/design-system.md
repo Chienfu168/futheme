@@ -51,7 +51,20 @@
 | `.fu-services`（0.4.0） | 服務卡片 Pattern 外層；內含三張 `.fu-card`（surface 底、1px border 邊框），寬版最多三欄、最小欄寬 16rem | 佈景內部 |
 | `.fu-contact`（0.4.0） | 聯絡 Pattern：primary 底、primary-contrast 字；屬深色區塊，焦點框反轉 | 佈景內部 |
 | `.fu-comments`（0.4.0） | 單篇留言區：留言列表與原生留言表單，不顯示大頭貼（不向 Gravatar 發請求） | 佈景內部 |
+| `.fu-site-header--centered`、`.fu-site-header--cta`（0.5.0） | 置中頁首、含行動按鈕的頁首（標準款只有 `.fu-site-header`） | 佈景內部 |
+| `.fu-credit`（0.5.0） | 頁尾署名段落 | 佈景內部 |
 | `.fu-field-error`（0.4.0） | 欄位錯誤訊息：danger 文字＋「!」圓形圖示（裝飾），以 `aria-describedby` 連到欄位；欄位本身加 `aria-invalid="true"` | **公開**：外掛表單可用此類別取得一致錯誤樣式；改名需記錄相容性 |
+
+### 版型款式（0.5.0）
+
+| 種類 | 款式（Pattern slug） |
+| --- | --- |
+| 頁首 | `futheme/header`（標準，預設）、`header-centered`、`header-cta` |
+| 頁尾 | `futheme/footer`（簡潔＋署名，預設）、`footer-columns`、`footer-promo`（另連 ur-promoter.com） |
+| 橫幅 | `futheme/hero`（未設圖→預設圖）、`banner-city`、`banner-nature`、`banner-business`、`banner-community`、`banner-tech`、`banner-culture` |
+
+濾鏡 `futheme_default_banner`：回傳 `city`／`nature`／`business`／`community`／`tech`／`culture` 換預設橫幅圖，回傳 `false` 關閉。屬**公開介面**，改名需記錄相容性。
+內建圖亮度固定 50～165、疊 80% 主色遮罩，文字最低 4.88:1；換成自己的照片時，對比由站長負責（遮罩仍在，可調深）。
 
 ### 元件狀態（0.4.0 實作，2026-11-20 十套配色實測）
 

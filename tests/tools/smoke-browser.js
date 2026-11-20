@@ -1,8 +1,10 @@
-const { chromium } = require('playwright');
+// 瀏覽器由 FUTHEME_BROWSER 指定：chromium（預設）、firefox、webkit
+const playwright = require('playwright');
+const engine = playwright[process.env.FUTHEME_BROWSER || 'chromium'];
 // 瀏覽器冒煙測試：360/1280px 截圖、橫向溢出、前兩個 Tab 焦點樣式。
 // 用法：node tests/tools/smoke-browser.js <輸出目錄>（測試站需在 localhost:8888）
 (async () => {
-  const b = await chromium.launch();
+  const b = await engine.launch();
   const out = process.argv[2];
   const errs = [];
   for (const w of [360, 1280]) {

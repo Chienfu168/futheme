@@ -2,7 +2,9 @@
 // 讀前台 computed style 比對配色 Token，並計算實際對比；鍵盤 Tab 檢查焦點框。
 // 用法：node tests/tools/components.js <fixture 頁網址路徑> <單篇網址路徑> [截圖目錄]
 // 測試站需在 localhost:8888，fixture 內容見 tests/fixtures/components.html。
-const { chromium } = require('playwright');
+// 瀏覽器由 FUTHEME_BROWSER 指定：chromium（預設）、firefox、webkit
+const playwright = require('playwright');
+const engine = playwright[process.env.FUTHEME_BROWSER || 'chromium'];
 const [fixture, single, out] = process.argv.slice(2);
 const BASE = 'http://localhost:8888';
 
@@ -12,7 +14,7 @@ const lum = ([r, g, b]) => [r, g, b].map(v => { v /= 255; return v <= 0.03928 ? 
 const ratio = (a, b) => { const [x, y] = [lum(parse(a)), lum(parse(b))].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
 
 (async () => {
-  const b = await chromium.launch();
+  const b = await engine.launch();
   const fails = []; const results = [];
   const check = (name, ok, detail) => { results.push(`${ok ? 'PASS' : 'FAIL'} ${name}${detail ? ' — ' + detail : ''}`); if (!ok) fails.push(name); };
   for (const w of [360, 1280]) {

@@ -6,7 +6,7 @@
 
 | 區域 | 做法 |
 | --- | --- |
-| 預設橫幅圖 | `assets/images/banner-1920.webp`（7.9KB）、`banner-960.webp`（3.7KB），以 [make_banner.py](../../scripts/make_banner.py) 產生的原創灰階抽象城市剪影，無外部素材。`.fu-banner` 沒有圖片時，`render_block_core/cover` 插入 `<img>`（srcset、寬高、`fetchpriority="high"`），遮罩為 80% primary，圖跟著配色變色。首頁、單篇、單頁都適用；站長設定圖片或精選圖片後以站長的為準 |
+| 預設橫幅圖 | `assets/images/banner-1920.webp`（7.9KB）、`banner-960.webp`（3.7KB），以 `make_banner.py`（0.5.0 起併入 [make_banners.py](../../scripts/make_banners.py)） 產生的原創灰階抽象城市剪影，無外部素材。`.fu-banner` 沒有圖片時，`render_block_core/cover` 插入 `<img>`（srcset、寬高、`fetchpriority="high"`），遮罩為 80% primary，圖跟著配色變色。首頁、單篇、單頁都適用；站長設定圖片或精選圖片後以站長的為準 |
 | 頁尾 | 左：網站名稱＋副標題；右：選單（直列、間距縮小）；下：細線＋「© 今年 網站名稱」。`.fu-copyright` 的年份在前台換成今年，儲存後也不會過期 |
 | 頁首 | 未指定選單且頁面過多時，收合按鈕改顯示文字（中文站為「選單」）而非只有圖示 |
 | 版本 | 0.2.1 → 0.3.0 |
