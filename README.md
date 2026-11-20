@@ -8,6 +8,9 @@
 
 ## 測試版下載安裝
 
+> **直接下載可安裝的 ZIP**：<https://github.com/Chienfu168/futheme/raw/claude/new-session-las1rm/dist/futheme-0.5.0-test.zip>
+> 不要用綠色「Code → Download ZIP」：那是整個專案，WordPress 會顯示「缺少 style.css 樣式表」而安裝失敗。
+
 0.2.0 起有首頁大橫幅、文章卡片、單篇／單頁頁首橫幅與深色頁尾。首頁橫幅的圖片在「外觀 → 編輯器 → 範本 → 首頁」點橫幅換圖；單篇／單頁橫幅用文章的「精選圖片」。0.3.0 起沒設圖片時顯示預設橫幅圖（灰階城市剪影，疊上目前配色的主色）。
 
 0.5.0 新增：

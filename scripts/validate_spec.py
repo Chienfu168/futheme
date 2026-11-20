@@ -56,6 +56,9 @@ def main():
     readme_version = re.search(r"佈景版本：\*\*(\S+?)\*\*", (ROOT / "README.md").read_text())
     if not readme_version or readme_version.group(1) != theme_version:
         errors.append(f"README 佈景版本 {readme_version and readme_version.group(1)} ≠ style.css {theme_version}")
+    # README 的直接下載連結必須指向目前版本的 ZIP
+    if f"dist/futheme-{theme_version}-test.zip>" not in (ROOT / "README.md").read_text():
+        errors.append(f"README 直接下載連結不是 futheme-{theme_version}-test.zip")
     if errors:
         raise SystemExit("\n".join(errors))
     print(f"PASS: 10 palettes, 13 tokens each, {checks} contrast pairs, local Markdown links. Lowest ratio: {minimum:.3f}:1 (includes 3:1 UI checks).")
