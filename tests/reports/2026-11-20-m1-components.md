@@ -30,6 +30,7 @@
 | WPCS／PHP lint | 通過 | `vendor/bin/phpcs`、`php -l` |
 | 配色／schema | 通過 | `validate_spec.py`、`build_styles.py --check`、`validate_theme_json.py` |
 | PHP 錯誤記錄 | 無 | `debug.log` 不存在 |
+| GitHub CI | 通過 | run #5（`3a49124`）：Static checks 與 WordPress runtime 全部步驟成功；run #1 抓到連結檢查誤掃 `vendor/`，已修正 |
 | ZIP 安裝／更新／回退 | 通過 | 乾淨站（不 symlink 佈景）：裝 0.3.0 ZIP 並啟用 → 以 0.4.0 ZIP 取代（版本 0.4.0、前台 200、新頁尾與預設橫幅出現、9 個 futheme Pattern 註冊）→ 以 0.3.0 ZIP 回退（版本 0.3.0、前台 200）；無 PHP 錯誤。用 WP-CLI `theme install --force`，非後台上傳畫面 |
 
 ZIP：`dist/futheme-0.4.0-test.zip`，SHA-256 `1b23518b575195466f1b7703d05060a9535419bbc26e2bd215385613b2678491`，39 檔，不含 vendor／composer。
@@ -38,7 +39,6 @@ ZIP：`dist/futheme-0.4.0-test.zip`，SHA-256 `1b23518b575195466f1b7703d05060a95
 
 ## 未驗證
 
-- **CI 未在 GitHub 上實際執行**：每個步驟都在本機跑過，但 runner 的 PHP 擴充、Playwright 安裝等要等推到 GitHub 才知道。
 - 編輯器內手動改單色／字型、編輯器「重設」、資料庫覆寫行為未測。
 - 只測 Chromium；Firefox、Safari、手機實機、200% 縮放未測。
 - 留言送出後的錯誤頁（例如必填欄位空白）由 WordPress 核心產生，佈景沒有樣式，未測。
