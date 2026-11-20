@@ -51,6 +51,11 @@ def main():
                 continue
             if not (document.parent / link.split("#")[0]).exists():
                 errors.append(f"Broken link: {document.relative_to(ROOT)} -> {link}")
+    # README 標示的佈景版本必須和 style.css 一致（曾經停在 0.1.0 沒人發現）
+    theme_version = re.search(r"^Version:\s*(\S+)", (ROOT / "themes/futheme/style.css").read_text(), re.M).group(1)
+    readme_version = re.search(r"佈景版本：\*\*(\S+?)\*\*", (ROOT / "README.md").read_text())
+    if not readme_version or readme_version.group(1) != theme_version:
+        errors.append(f"README 佈景版本 {readme_version and readme_version.group(1)} ≠ style.css {theme_version}")
     if errors:
         raise SystemExit("\n".join(errors))
     print(f"PASS: 10 palettes, 13 tokens each, {checks} contrast pairs, local Markdown links. Lowest ratio: {minimum:.3f}:1 (includes 3:1 UI checks).")
