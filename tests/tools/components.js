@@ -19,7 +19,8 @@ const ratio = (a, b) => { const [x, y] = [lum(parse(a)), lum(parse(b))].sort((p,
   const check = (name, ok, detail) => { results.push(`${ok ? 'PASS' : 'FAIL'} ${name}${detail ? ' — ' + detail : ''}`); if (!ok) fails.push(name); };
   for (const w of [360, 1280]) {
     const p = await b.newPage({ viewport: { width: w, height: 900 } });
-    const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => m.type() === 'error' && errs.push(m.text()));
+    const errs = []; p.on('pageerror', e => errs.push(e.message)); // WebKit 在 http 測試站拒絕 Speculation Rules 預先擷取，正式站為 https 不會發生，略過
+    p.on('console', m => m.type() === 'error' && !m.text().startsWith('Prefetch request denied: URL must be secure') && errs.push(m.text()));
     await p.goto(BASE + fixture);
     // 解析每個 Token 的實際顏色：用一個暫存元素讀 computed color
     const tok = await p.evaluate(() => {

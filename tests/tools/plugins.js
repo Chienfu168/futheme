@@ -15,7 +15,8 @@ const ratio = (a, b) => { const [x, y] = [lum(parse(a)), lum(parse(b))].sort((p,
   const b = await engine.launch();
   const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
   const errs = []; p.on('pageerror', e => errs.push(e.message));
-  p.on('console', m => m.type() === 'error' && errs.push(m.text()));
+  // WebKit 在 http 測試站拒絕 Speculation Rules 預先擷取，正式站為 https 不會發生，略過
+    p.on('console', m => m.type() === 'error' && !m.text().startsWith('Prefetch request denied: URL must be secure') && errs.push(m.text()));
   const results = []; const fails = [];
   const check = (name, ok, detail) => { results.push(`${ok ? 'PASS' : 'FAIL'} ${name}${detail ? ' — ' + detail : ''}`); if (!ok) fails.push(name); };
   const cs = (sel) => p.evaluate((s) => { const e = document.querySelector(s); if (!e) return null; const c = getComputedStyle(e); return { bg: c.backgroundColor, color: c.color, bc: c.borderTopColor, h: e.getBoundingClientRect().height, display: c.display }; }, sel);
