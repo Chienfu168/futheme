@@ -50,3 +50,20 @@
 | 都更試算 | 標頭帶與結果框改用 secondary；深底上的亮色、次要文字由 primary 推出 | 十套配色跟隨；亮色／深底最低 4.86:1、白字／深底最低 7.39:1；`check.sh` 全過；試算 225.00 坪 |
 
 修正後十套 × 11 項全數通過。UR AI Assistant 其餘 6 個樣式表（計算機、市場行情等）仍是固定色，留給外掛專案。
+
+## 第 2 版：外掛在其他佈景也要正常（2026-11-20）
+
+本人提醒：網站還沒換成 FuTheme 前，外掛樣式不能壞。以 [plugin-theme-matrix.js](../tools/plugin-theme-matrix.js) 在四個佈景下量關鍵按鈕與文字的實際對比：
+
+| 佈景 | 外掛原版（都更試算 0.3.7、UR AI 1.49.0） | 第 1 版修正（讀 `--wp--preset--color--*`） | 第 2 版修正（讀 `--wp--custom--futheme--*`） |
+| --- | --- | --- | --- |
+| FuTheme | 正常 | 正常、跟配色 | 正常、跟配色（十套 × 11 項全過） |
+| Twenty Twenty-Three（primary 是萊姆綠） | ❌ 都更試算按鈕 1.25:1、1.2:1 | ❌ 再加上標頭與 AI 送出鈕 1.25:1 | ✅ 用外掛預設色（5.6:1、4.66:1） |
+| Twenty Twenty-Five | 正常 | 正常 | **6／6 項與原版相同** |
+| Twenty Twenty-One（傳統佈景） | 正常 | 正常 | **6／6 項與原版相同** |
+
+結論：
+
+- **共用名稱 `--wp--preset--color--*` 不安全**：別的佈景也有同名變數但意思不同。都更試算 0.3.7 現在就有這個問題（目前正式站的佈景剛好沒觸發）。
+- FuTheme 0.6.1 起以 theme.json `settings.custom.futheme` 輸出專屬變數 `--wp--custom--futheme--*`；外掛改讀它，FuTheme 下跟配色，其他佈景完全是原樣。契約見 [色彩 slug 契約](../../docs/color-slug-contract.md)。
+- 第 2 版修正檔已交給外掛專案；**本 session 未推送到兩個外掛 repo**。

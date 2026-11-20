@@ -173,6 +173,23 @@
 					"slug": "xx-large"
 				}
 			]
+		},
+		"custom": {
+			"futheme": {
+				"primary": "var(--wp--preset--color--primary)",
+				"primaryContrast": "var(--wp--preset--color--primary-contrast)",
+				"secondary": "var(--wp--preset--color--secondary)",
+				"accent": "var(--wp--preset--color--accent)",
+				"base": "var(--wp--preset--color--base)",
+				"surface": "var(--wp--preset--color--surface)",
+				"contrast": "var(--wp--preset--color--contrast)",
+				"muted": "var(--wp--preset--color--muted)",
+				"border": "var(--wp--preset--color--border)",
+				"focus": "var(--wp--preset--color--focus)",
+				"success": "var(--wp--preset--color--success)",
+				"warning": "var(--wp--preset--color--warning)",
+				"danger": "var(--wp--preset--color--danger)"
+			}
 		}
 	},
 	"styles": {
