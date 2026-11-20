@@ -18,6 +18,7 @@
 | 網站編輯器切換配色 | 2026-11-15：瀏覽器實際操作「樣式 → 瀏覽樣式」選石墨灰並儲存，前台 13 色相符，見 [報告](../tests/reports/2026-11-15-merge-editor.md) |
 | 佈景改名 | 2026-11-15 本人決定：名稱 `FuTheme`、代號 `futheme`（原 `futheme-core`），加 `Update URI`、`screenshot.png`；改名後全部重測通過，見 [報告](../tests/reports/2026-11-15-merge-editor.md) |
 | 0.2.0 視覺版面 | 2026-11-15：首頁大橫幅（hero Pattern）、文章卡片格線、單篇／單頁頁首橫幅、深色頁尾、頁首主色線；十套配色截圖、編輯器區塊合法性、對比計算、深色區塊焦點框、0.1.0→0.2.0 升級均通過，見 [報告](../tests/reports/2026-11-15-visual.md) |
+| 自家外掛融合度 | 2026-11-20：都更試算 0.3.7、UR AI Assistant 1.49.0 在十套配色下版面、功能、無錯誤通過；都更試算跟隨配色，UR AI Assistant 固定藍色且錯誤訊息被蓋掉（外掛端，建議另修），見 [報告](../tests/reports/2026-11-20-own-plugins.md) |
 | 0.6.0 線上更新 | 2026-11-20：讀 main 分支 `update.json`、SHA-256 驗證；偵測新版、後台一鍵更新、檢查碼不符擋下、版本檔取不到時不影響網站，全部實測；**要合併進 main 後各站才收得到**，見 [報告](../tests/reports/2026-11-20-060-online-update.md) |
 | 0.5.1 fudawang 外掛實測 | 2026-11-20：以正式站相同版本裝 19 個公開外掛全部啟用，前台、元件、CF7、版型測試通過；發現 WP Fastest Cache 擋住換配色，佈景改為儲存樣式時自動清快取；見 [報告](../tests/reports/2026-11-20-051-site-plugins.md) |
 | 0.5.0 版型與相容 | 2026-11-20：作者改為福大資訊、頁尾署名；頁首／頁尾各三款；六款原創橫幅圖與 Pattern；CF7 與 Yoast 相容實測；CI 加 Firefox、WebKit；見 [報告](../tests/reports/2026-11-20-050-layouts-banners-plugins.md) |
@@ -35,7 +36,7 @@
 | 網站編輯器細項 | 2026-11-15 已在編輯器實際切換並儲存配色（通過）；手動改單色／字型、編輯器重設、編輯器與前台逐項比對未測 |
 | 其他瀏覽器與裝置 | 本機只測 Chromium；Firefox、WebKit 已加入 CI（0.5.0 首次）；手機實機、200% 縮放未測 |
 | fudawang 盤點 | 未做：現用佈景、外掛、主機 PHP／資料庫版本都未確認；佈景暫標 `Requires PHP: 8.3`（只測過 8.3），需依主機版本決定是否另測放寬 |
-| 效能比較／外掛整合 | 效能比較未測；外掛：fudawang 的 19 個公開外掛已實測，都更試算與 UR AI Assistant 未測（原始碼未取得） |
+| 效能比較／外掛整合 | 效能比較未測；外掛：fudawang 的 19 個公開外掛已實測，都更試算與 UR AI Assistant 2026-11-20 已測 |
 
 ## 阻礙
 
@@ -45,7 +46,7 @@
 | 資料庫差異 | 雲端容器沒有 Docker daemon 與 MySQL，M1 先用 SQLite；正式主機用 MySQL/MariaDB，資料庫相關行為須在 M2 隔離副本再驗 |
 | UR 採用方向 | 未決；第一個採用者為 fudawang，不阻擋 M2 |
 | UR 隔離副本 | 未取得；UR 未決前不需要 |
-| UR AI Assistant 原始碼 | 未取得；不假設既有交接文件含原始碼 |
+| UR AI Assistant 原始碼 | 2026-11-20 取得（`Chienfu168/FU-AI-UR`，公開），已做融合度測試 |
 | GitHub Release | 未建立，M3 處理 |
 
 正式網站：未操作，無登入、切換或部署。

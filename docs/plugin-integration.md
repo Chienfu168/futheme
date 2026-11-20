@@ -34,5 +34,5 @@ M1 可用測試 fixture 驗證 CSS 契約，fixture 不能替代 UR 外掛整合
 | Performance Lab 與 10 個模組 | 見報告 | 圖片、預載、轉場 | 通過；Optimization Detective 會標記佈景的預設橫幅圖，屬正常 |
 | Site Kit by Google | 1.192.0 | 前台追蹤碼 | 通過 |
 | Wordfence、WPS Hide Login、Limit Login Attempts Reloaded | 9.1.1、1.9.20、3.4.5 | 後台與登入 | 前台通過；Wordfence 在測試環境（SQLite、無防火牆規則檔）有自身警告，與佈景無關 |
-| 都更試算（ur-calc） | 0.3.7 | 前台試算區塊 | **未測**：私人 repo，本次未取得原始碼；依 [色彩 slug 契約](color-slug-contract.md) 讀 `--wp--preset--color--*` |
-| UR AI Assistant | 1.49.0 | 前台問答介面 | **未測**：原始碼未取得 |
+| 都更試算（ur-calc） | 0.3.7 | 前台試算區塊 | 通過；**跟隨十套配色**（讀 8 個 Token），試算功能正常；標題區與結果框為外掛固定深色。見 [報告](../tests/reports/2026-11-20-own-plugins.md) |
+| UR AI Assistant | 1.49.0 | 前台問答介面 | 版面與功能通過；**不跟配色**（固定藍色）；沒有 API Key 時錯誤訊息被前台蓋成「連線失敗」，屬外掛端問題。見 [報告](../tests/reports/2026-11-20-own-plugins.md) |
