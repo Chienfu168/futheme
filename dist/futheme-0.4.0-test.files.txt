@@ -7,12 +7,15 @@ futheme/languages/zh_TW.mo
 futheme/languages/zh_TW.po
 futheme/parts/footer.html
 futheme/parts/header.html
+futheme/patterns/contact.php
 futheme/patterns/hero.php
 futheme/patterns/hidden-404.php
+futheme/patterns/hidden-comments.php
 futheme/patterns/hidden-front-latest.php
 futheme/patterns/hidden-no-results.php
 futheme/patterns/hidden-no-search-results.php
 futheme/patterns/hidden-posts-title.php
+futheme/patterns/services.php
 futheme/screenshot.png
 futheme/style.css
 futheme/styles/aqua-blue.json

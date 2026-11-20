@@ -2,14 +2,14 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: FuTheme 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/Chienfu168/futheme\n"
-"Last-Translator: FuTheme\n"
-"Language-Team: FuTheme\n"
+"Project-Id-Version: FuTheme 0.4.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/futheme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-15T10:46:38+00:00\n"
+"POT-Creation-Date: 2026-11-20T02:10:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: futheme\n"
@@ -40,6 +40,52 @@ msgstr ""
 msgid "https://www.fudawang.com"
 msgstr ""
 
+#: patterns/contact.php
+msgctxt "Pattern title"
+msgid "Contact section"
+msgstr ""
+
+#: patterns/contact.php
+msgctxt "Pattern description"
+msgid "Primary-colour call to action with contact details and a button. Replace the sample details with your own; the theme does not include a form or store any data."
+msgstr ""
+
+#: patterns/contact.php:16
+msgid "Get in touch"
+msgstr ""
+
+#: patterns/contact.php:20
+msgid "Tell visitors how to reach you and when to expect a reply."
+msgstr ""
+
+#: patterns/contact.php:28
+msgid "Phone"
+msgstr ""
+
+#: patterns/contact.php:28
+msgid "Add your phone number"
+msgstr ""
+
+#: patterns/contact.php:29
+msgid "Email"
+msgstr ""
+
+#: patterns/contact.php:29
+msgid "Add your email address"
+msgstr ""
+
+#: patterns/contact.php:30
+msgid "Address"
+msgstr ""
+
+#: patterns/contact.php:30
+msgid "Add your address or office hours"
+msgstr ""
+
+#: patterns/contact.php:46
+msgid "Contact us"
+msgstr ""
+
 #: patterns/hero.php
 msgctxt "Pattern title"
 msgid "Hero banner"
@@ -65,6 +111,20 @@ msgstr ""
 
 #: patterns/hidden-404.php:16
 msgid "The page you are looking for may have been moved or removed. Try searching instead."
+msgstr ""
+
+#: patterns/hidden-comments.php
+msgctxt "Pattern title"
+msgid "Comments"
+msgstr ""
+
+#: patterns/hidden-comments.php
+msgctxt "Pattern description"
+msgid "Comment list and native comment form. No avatars, so no external image requests."
+msgstr ""
+
+#: patterns/hidden-comments.php:14
+msgid "Comments"
 msgstr ""
 
 #: patterns/hidden-front-latest.php
@@ -98,4 +158,46 @@ msgstr ""
 #: patterns/hidden-posts-title.php
 msgctxt "Pattern title"
 msgid "Posts page title"
+msgstr ""
+
+#: patterns/services.php
+msgctxt "Pattern title"
+msgid "Service cards"
+msgstr ""
+
+#: patterns/services.php
+msgctxt "Pattern description"
+msgid "Section heading with three service cards in a responsive grid. Replace the sample text with your own services."
+msgstr ""
+
+#: patterns/services.php:16
+msgid "Our services"
+msgstr ""
+
+#: patterns/services.php:20
+msgid "A short sentence that explains what you offer and who it is for."
+msgstr ""
+
+#: patterns/services.php:28
+msgid "First service"
+msgstr ""
+
+#: patterns/services.php:28
+msgid "Describe the first service in one or two sentences."
+msgstr ""
+
+#: patterns/services.php:29
+msgid "Second service"
+msgstr ""
+
+#: patterns/services.php:29
+msgid "Describe the second service in one or two sentences."
+msgstr ""
+
+#: patterns/services.php:30
+msgid "Third service"
+msgstr ""
+
+#: patterns/services.php:30
+msgid "Describe the third service in one or two sentences."
 msgstr ""

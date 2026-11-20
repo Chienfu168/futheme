@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<ruleset name="FuTheme">
+	<description>WordPress Coding Standards for FuTheme.</description>
+	<file>themes/futheme</file>
+	<arg name="extensions" value="php"/>
+	<arg value="s"/>
+	<config name="testVersion" value="8.3-"/>
+	<config name="minimum_wp_version" value="7.1"/>
+	<rule ref="WordPress">
+		<!-- 註解以中文撰寫，句尾為「。」，這兩條只認半形 . ! ? -->
+		<exclude name="Squiz.Commenting.InlineComment.InvalidEndChar"/>
+		<exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+	</rule>
+	<rule ref="WordPress.WP.I18n">
+		<properties>
+			<property name="text_domain" type="array"><element value="futheme"/></property>
+		</properties>
+	</rule>
+	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+		<properties>
+			<property name="prefixes" type="array"><element value="futheme"/></property>
+		</properties>
+	</rule>
+</ruleset>

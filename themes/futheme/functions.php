@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'FUTHEME_VERSION' ) ) {
-	define( 'FUTHEME_VERSION', '0.3.0' );
+	define( 'FUTHEME_VERSION', '0.4.0' );
 }
 
 /**

@@ -31,6 +31,12 @@ success  warning  danger
 不會有任何訊息——只是某一天有人發現試算區塊的顏色跟網站不一樣了，
 然後沒有人知道為什麼。安靜地壞掉比直接壞掉難發現得多。
 
+## 已知問題：`border` 與 WordPress 類別撞名（2026-11-20）
+
+`border` 產生的文字色類別 `has-border-color` 剛好和 WordPress「這個區塊有邊框色」的通用類別同名，
+所有設了邊框色的區塊文字都會變成 border 色。佈景以 CSS 修正（見 [設計系統](design-system.md)），**不改 slug**：
+改名會讓讀 `--wp--preset--color--border` 的外掛退回預設色，代價比 CSS 修正大。
+
 ## 要改 slug 的話
 
 1. 先查有哪些外掛在讀這些變數（目前已知：ur-calc）

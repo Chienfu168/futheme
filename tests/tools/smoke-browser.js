@@ -7,7 +7,8 @@ const { chromium } = require('playwright');
   const errs = [];
   for (const w of [360, 1280]) {
     const p = await b.newPage({ viewport: { width: w, height: 800 } });
-    p.on('console', m => m.type() === 'error' && errs.push(`${w} ${m.text()}`));
+    // 404 測試頁與不存在的分頁本身回 404 是預期的；只略過「主文件」的 404，子資源（CSS、圖片）404 仍算錯誤
+    p.on('console', m => m.type() === 'error' && !(m.text().includes('status of 404') && m.location().url === p.url()) && errs.push(`${w} ${m.text()} ${m.location().url}`));
     p.on('pageerror', e => errs.push(`${w} ${e.message}`));
     for (const [n, u] of [['home', '/'], ['single', '/?p=1'], ['search', '/?s=zzzz'], ['404', '/nope/'], ['archive', '/category/uncategorized/page/2/']]) {
       await p.goto('http://localhost:8888' + u);
