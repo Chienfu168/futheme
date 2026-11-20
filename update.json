@@ -1,0 +1,9 @@
+{
+  "version": "0.6.0",
+  "package": "https://raw.githubusercontent.com/Chienfu168/futheme/main/dist/futheme-0.6.0-test.zip",
+  "sha256": "a36ec7c9174c2cf6dc89f7a4d2fa2a74a7ad7bdabcedfceaa50303062167734d",
+  "url": "https://github.com/Chienfu168/futheme",
+  "requires": "7.1",
+  "requires_php": "8.3",
+  "tested": "7.1"
+}

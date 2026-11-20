@@ -12,6 +12,7 @@ futheme/assets/images/banner-nature-960.webp
 futheme/assets/images/banner-tech-1920.webp
 futheme/assets/images/banner-tech-960.webp
 futheme/functions.php
+futheme/inc/updater.php
 futheme/languages/futheme.pot
 futheme/languages/zh_TW.mo
 futheme/languages/zh_TW.po

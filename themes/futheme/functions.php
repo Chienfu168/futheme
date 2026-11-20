@@ -11,8 +11,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// 線上更新（讀 GitHub main 分支的 update.json）。
+require_once __DIR__ . '/inc/updater.php';
+
 if ( ! defined( 'FUTHEME_VERSION' ) ) {
-	define( 'FUTHEME_VERSION', '0.5.1' );
+	define( 'FUTHEME_VERSION', '0.6.0' );
 }
 
 /**
