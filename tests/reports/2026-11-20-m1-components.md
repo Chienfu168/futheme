@@ -31,7 +31,8 @@
 | 配色／schema | 通過 | `validate_spec.py`、`build_styles.py --check`、`validate_theme_json.py` |
 | PHP 錯誤記錄 | 無 | `debug.log` 不存在 |
 | GitHub CI | 通過 | run #5（`3a49124`）：Static checks 與 WordPress runtime 全部步驟成功；run #1 抓到連結檢查誤掃 `vendor/`，已修正 |
-| ZIP 安裝／更新／回退 | 通過 | 乾淨站（不 symlink 佈景）：裝 0.3.0 ZIP 並啟用 → 以 0.4.0 ZIP 取代（版本 0.4.0、前台 200、新頁尾與預設橫幅出現、9 個 futheme Pattern 註冊）→ 以 0.3.0 ZIP 回退（版本 0.3.0、前台 200）；無 PHP 錯誤。用 WP-CLI `theme install --force`，非後台上傳畫面 |
+| ZIP 安裝／更新／回退 | 通過 | 乾淨站（不 symlink 佈景）：裝 0.3.0 ZIP 並啟用 → 以 0.4.0 ZIP 取代（版本 0.4.0、前台 200、新頁尾與預設橫幅出現、9 個 futheme Pattern 註冊）→ 以 0.3.0 ZIP 回退（版本 0.3.0、前台 200）；無 PHP 錯誤。用 WP-CLI `theme install --force` |
+| 後台上傳更新 | 通過 | 2026-11-20：從 GitHub 分支取出的 ZIP（SHA-256 與 `.sha256` 相符），在「外觀 → 佈景主題 → 上傳佈景主題」上傳；出現 0.3.0 → 0.4.0 比較畫面，按「以上傳的版本取代」後顯示更新成功；佈景維持啟用、前台 200、無 PHP 錯誤 |
 
 ZIP：`dist/futheme-0.4.0-test.zip`，SHA-256 `1b23518b575195466f1b7703d05060a9535419bbc26e2bd215385613b2678491`，39 檔，不含 vendor／composer。
 
