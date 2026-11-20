@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FuTheme 0.5.0\n"
+"Project-Id-Version: FuTheme 0.5.1\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

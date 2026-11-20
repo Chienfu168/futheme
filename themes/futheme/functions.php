@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 if ( ! defined( 'FUTHEME_VERSION' ) ) {
-	define( 'FUTHEME_VERSION', '0.5.0' );
+	define( 'FUTHEME_VERSION', '0.5.1' );
 }
 
 /**
@@ -219,3 +219,54 @@ function futheme_cf7_compat(): void {
 	wp_add_inline_style( 'contact-form-7', $css );
 }
 add_action( 'wp_enqueue_scripts', 'futheme_cf7_compat', 20 );
+
+/**
+ * 外觀變更後清除頁面快取。
+ *
+ * 配色、範本、範本組件存在資料庫；快取外掛（例如 WP Fastest Cache）會繼續送出舊頁面與合併後的舊 CSS，
+ * 換了配色訪客卻看到舊顏色（2026-11-20 實測確認）。這裡只呼叫各快取外掛公開的清除介面，
+ * 沒裝該外掛時什麼都不做。佈景不自己做快取。
+ */
+function futheme_purge_page_cache(): void {
+	static $done = false;
+	if ( $done ) {
+		return;
+	}
+	$done = true;
+	// 呼叫的是快取外掛自己的公開 hook，名稱不能加佈景前綴。
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- WP Fastest Cache 公開介面；true：連合併的 CSS／JS 一起清。
+	do_action( 'wpfc_clear_all_cache', true );
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- LiteSpeed Cache 公開介面。
+	do_action( 'litespeed_purge_all' );
+	if ( function_exists( 'rocket_clean_domain' ) ) {
+		rocket_clean_domain();                 // WP Rocket。
+	}
+	if ( function_exists( 'w3tc_flush_all' ) ) {
+		w3tc_flush_all();                      // W3 Total Cache。
+	}
+	if ( function_exists( 'wp_cache_clear_cache' ) ) {
+		wp_cache_clear_cache();                // WP Super Cache。
+	}
+	/**
+	 * 外觀變更、頁面快取已要求清除之後。其他快取外掛可掛這裡。
+	 */
+	do_action( 'futheme_page_cache_purged' );
+}
+add_action( 'save_post_wp_global_styles', 'futheme_purge_page_cache' );
+add_action( 'save_post_wp_template', 'futheme_purge_page_cache' );
+add_action( 'save_post_wp_template_part', 'futheme_purge_page_cache' );
+add_action( 'after_switch_theme', 'futheme_purge_page_cache' );
+
+/**
+ * FuTheme 本身更新後也清快取（新版 CSS 與 Pattern 才會出現）。
+ *
+ * @param WP_Upgrader $upgrader 更新器。
+ * @param array       $options  更新資訊。
+ */
+function futheme_purge_after_update( $upgrader, array $options ): void {
+	if ( 'theme' === ( $options['type'] ?? '' )
+		&& in_array( get_template(), (array) ( $options['themes'] ?? array() ), true ) ) {
+		futheme_purge_page_cache();
+	}
+}
+add_action( 'upgrader_process_complete', 'futheme_purge_after_update', 10, 2 );

@@ -1,6 +1,6 @@
 # FuTheme
 
-佈景版本：**0.5.0**（2026-11-20）｜作者：福大資訊｜階段：M1 核心原型大致完成，**仍為測試版**
+佈景版本：**0.5.1**（2026-11-20）｜作者：福大資訊｜階段：M1 核心原型大致完成，**仍為測試版**
 
 多站共用的 Block Theme：十套品牌配色在網站編輯器切換，只負責呈現、不含業務邏輯。
 已有首頁與頁首橫幅、文章卡片、服務卡片、聯絡區塊、留言區，以及按鈕與表單的完整狀態；每次推送都由 GitHub CI 自動檢查。
@@ -8,7 +8,7 @@
 
 ## 測試版下載安裝
 
-> **直接下載可安裝的 ZIP**：<https://github.com/Chienfu168/futheme/raw/claude/new-session-las1rm/dist/futheme-0.5.0-test.zip>
+> **直接下載可安裝的 ZIP**：<https://github.com/Chienfu168/futheme/raw/claude/new-session-las1rm/dist/futheme-0.5.1-test.zip>
 > 不要用綠色「Code → Download ZIP」：那是整個專案，WordPress 會顯示「缺少 style.css 樣式表」而安裝失敗。
 
 0.2.0 起有首頁大橫幅、文章卡片、單篇／單頁頁首橫幅與深色頁尾。首頁橫幅的圖片在「外觀 → 編輯器 → 範本 → 首頁」點橫幅換圖；單篇／單頁橫幅用文章的「精選圖片」。0.3.0 起沒設圖片時顯示預設橫幅圖（灰階城市剪影，疊上目前配色的主色）。
@@ -22,9 +22,9 @@
 
 **選單**：頁首與頁尾請在「外觀 → 編輯器 → 導覽」建立選單並指定。沒指定時 WordPress 會自動列出所有頁面；0.2.1 起頁面超過 6 個時，頁首自動收成選單按鈕、頁尾不列出。
 
-1. 在 GitHub 開啟 [dist/futheme-0.5.0-test.zip](dist/futheme-0.5.0-test.zip)，按右上角下載（Download raw file）。
+1. 在 GitHub 開啟 [dist/futheme-0.5.1-test.zip](dist/futheme-0.5.1-test.zip)，按右上角下載（Download raw file）。
    不要用 repo 首頁的「Code → Download ZIP」，那是整個專案，WordPress 無法安裝。
-2. 可比對 SHA-256：[futheme-0.5.0-test.sha256](dist/futheme-0.5.0-test.sha256)。
+2. 可比對 SHA-256：[futheme-0.5.1-test.sha256](dist/futheme-0.5.1-test.sha256)。
 3. WordPress 後台「外觀 → 佈景主題 → 安裝佈景主題 → 上傳佈景主題」，選 ZIP，安裝後啟用。
 4. 換配色：「外觀 → 編輯器 → 樣式」選一套後儲存。
 5. 從舊版升級：直接上傳新 ZIP，選「使用已上傳版本取代已安裝版本」。
