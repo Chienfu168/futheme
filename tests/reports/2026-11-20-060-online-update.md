@@ -24,6 +24,7 @@
 | 後台「更新」頁按更新 | 通過：「FuTheme updated successfully」，版本 0.6.1、維持啟用、前台 200、無 PHP 錯誤 |
 | 版本檔取不到（404） | 通過：不顯示更新、網站正常；失敗結果快取 1 小時，不會每次進後台都連線 |
 | 第三方佈景同樣用 github.com 的 Update URI | 程式只處理目錄名稱為 `futheme` 的佈景 |
+| 外掛更新不受影響 | 通過：佈景更新程式啟用中，Contact Form 7 由 6.1 更新到 6.2.5 正常、無 PHP 錯誤。`upgrader_pre_download` 只攔截網址等於 `update.json` 所列 ZIP 的下載，其他外掛（含自帶更新程式的 UR AI Assistant）的下載原樣放行 |
 
 截圖：[更新頁](img/2026-11-20-060-update-core.png)。
 
