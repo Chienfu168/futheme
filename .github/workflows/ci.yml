@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: PHP version
         run: php -v | head -1
@@ -55,7 +55,7 @@ jobs:
     env:
       FUTHEME_WP_PORT: '8888'
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: PHP SQLite extension
         run: php -m | grep -qi '^pdo_sqlite$' || (sudo apt-get update && sudo apt-get install -y php8.3-sqlite3)
@@ -108,7 +108,7 @@ jobs:
 
       - name: Screenshots
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: screenshots
           path: /tmp/shots

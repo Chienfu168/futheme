@@ -41,7 +41,11 @@ def main():
             minimum = min(minimum, value)
             if value < target:
                 errors.append(f"{palette['slug']} {fg}/{bg}: {value:.3f} < {target}")
+    # 只檢查本專案自己的文件；第三方（vendor、node_modules）與本機測試站不檢查
+    skip = {"vendor", "node_modules", ".wp-test", ".git"}
     for document in ROOT.rglob("*.md"):
+        if skip.intersection(document.relative_to(ROOT).parts):
+            continue
         for link in re.findall(r"\[[^\]]*\]\(([^)]+)\)", document.read_text()):
             if "://" in link or link.startswith("#"):
                 continue
