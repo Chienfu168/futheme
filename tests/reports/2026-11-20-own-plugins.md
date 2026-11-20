@@ -38,3 +38,15 @@
 - 都更試算以區塊（`ur-calc/calculator`）插入的情境（本次用短代碼，兩者輸出相同的 `.ur-calc` 結構）。
 - UR AI Assistant 有 API Key 時的真實回答畫面、LINE Bot、市場行情抓取、後台分析頁（會連外部服務，本次刻意不測）。
 - 只測 Chromium；這兩個外掛不在 CI（ur-calc 是私人 repo）。
+
+## 後續：修正已在測試站驗證，交給外掛專案套用（2026-11-20）
+
+本人要求「能修就修，不能修就給建議」。本 session 對兩個外掛 repo 只有讀取權限，所以在測試站的外掛副本上修好、驗證，
+做成修正檔交給各外掛專案套用；**未推送到兩個外掛 repo**。
+
+| 外掛 | 修正 | 驗證 |
+| --- | --- | --- |
+| UR AI Assistant | ① AJAX 失敗時優先顯示伺服器的 `data.message`（三處）；② `public.css` 五個品牌藍改讀 `--wp--preset--color--primary／secondary／surface`，備援為原色 | 十套配色跟隨、白字最低 5.59:1；畫面顯示「尚未設定 OpenAI API Key…」；Twenty Twenty-Five 下仍是原本的藍 |
+| 都更試算 | 標頭帶與結果框改用 secondary；深底上的亮色、次要文字由 primary 推出 | 十套配色跟隨；亮色／深底最低 4.86:1、白字／深底最低 7.39:1；`check.sh` 全過；試算 225.00 坪 |
+
+修正後十套 × 11 項全數通過。UR AI Assistant 其餘 6 個樣式表（計算機、市場行情等）仍是固定色，留給外掛專案。
