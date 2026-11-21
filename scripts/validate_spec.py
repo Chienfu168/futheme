@@ -41,12 +41,39 @@ def main():
             minimum = min(minimum, value)
             if value < target:
                 errors.append(f"{palette['slug']} {fg}/{bg}: {value:.3f} < {target}")
+    # 只檢查本專案自己的文件；第三方（vendor、node_modules）與本機測試站不檢查
+    skip = {"vendor", "node_modules", ".wp-test", ".git"}
     for document in ROOT.rglob("*.md"):
+        if skip.intersection(document.relative_to(ROOT).parts):
+            continue
         for link in re.findall(r"\[[^\]]*\]\(([^)]+)\)", document.read_text()):
             if "://" in link or link.startswith("#"):
                 continue
             if not (document.parent / link.split("#")[0]).exists():
                 errors.append(f"Broken link: {document.relative_to(ROOT)} -> {link}")
+    # README 標示的佈景版本必須和 style.css 一致（曾經停在 0.1.0 沒人發現）
+    theme_version = re.search(r"^Version:\s*(\S+)", (ROOT / "themes/futheme/style.css").read_text(), re.M).group(1)
+    readme_version = re.search(r"佈景版本：\*\*(\S+?)\*\*", (ROOT / "README.md").read_text())
+    if not readme_version or readme_version.group(1) != theme_version:
+        errors.append(f"README 佈景版本 {readme_version and readme_version.group(1)} ≠ style.css {theme_version}")
+    # README 的直接下載連結必須指向目前版本的 ZIP
+    if f"dist/futheme-{theme_version}-test.zip>" not in (ROOT / "README.md").read_text():
+        errors.append(f"README 直接下載連結不是 futheme-{theme_version}-test.zip")
+    # 線上更新版本檔必須與目前版本、實際 ZIP 雜湊一致，否則網站會下載到錯的檔或驗證失敗
+    import hashlib
+    manifest_path = ROOT / "update.json"
+    if manifest_path.exists():
+        manifest = json.loads(manifest_path.read_text())
+        zip_name = manifest["package"].rsplit("/", 1)[-1]
+        zip_path = ROOT / "dist" / zip_name
+        if manifest.get("version") != theme_version:
+            errors.append(f"update.json 版本 {manifest.get('version')} ≠ style.css {theme_version}")
+        if not manifest["package"].startswith("https://raw.githubusercontent.com/Chienfu168/futheme/main/dist/"):
+            errors.append("update.json 下載網址必須指向 main 分支的 dist/")
+        if not zip_path.exists():
+            errors.append(f"update.json 指向的 {zip_name} 不在 dist/")
+        elif hashlib.sha256(zip_path.read_bytes()).hexdigest() != manifest.get("sha256"):
+            errors.append(f"update.json 的 SHA-256 與 dist/{zip_name} 不符")
     if errors:
         raise SystemExit("\n".join(errors))
     print(f"PASS: 10 palettes, 13 tokens each, {checks} contrast pairs, local Markdown links. Lowest ratio: {minimum:.3f}:1 (includes 3:1 UI checks).")

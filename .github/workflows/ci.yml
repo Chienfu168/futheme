@@ -1,0 +1,136 @@
+# FuTheme M1 自動檢查：靜態檢查（PHP lint、WPCS、配色、theme.json schema）
+# 與 WordPress 實測（安裝、啟用、編輯器區塊合法性、前台與元件狀態）。
+# 不發布、不部署、不連正式站；Release 打包留待 M3。
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash  # 明寫 bash 才會啟用 -eo pipefail，tee 前的失敗不被吞掉
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: Static checks
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: PHP version
+        run: php -v | head -1
+
+      - name: PHP lint
+        run: find themes -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: WordPress Coding Standards
+        run: |
+          composer install --no-interaction --no-progress
+          vendor/bin/phpcs
+
+      - name: Palette tokens and contrast
+        run: python3 scripts/validate_spec.py
+
+      - name: Styles match tokens
+        run: python3 scripts/build_styles.py --check
+
+      - name: theme.json schema
+        run: python3 scripts/validate_theme_json.py
+
+  wordpress:
+    name: WordPress runtime (${{ matrix.browser }})
+    needs: static
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      matrix:
+        # chromium＝Chrome／Edge；firefox；webkit＝Safari 的引擎
+        browser: [chromium, firefox, webkit]
+    env:
+      FUTHEME_WP_PORT: '8888'
+      FUTHEME_BROWSER: ${{ matrix.browser }}
+      # 外掛相容測試鎖定版本（2026-11-20 本機實測版本）
+      CF7_VERSION: '6.2.5'
+      YOAST_VERSION: '28.9'
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: PHP SQLite extension
+        run: php -m | grep -qi '^pdo_sqlite$' || (sudo apt-get update && sudo apt-get install -y php8.3-sqlite3)
+
+      - name: Set up WordPress test site
+        run: bash tests/env/setup.sh | grep -v '管理員'
+
+      - name: Start PHP server
+        run: |
+          PHP_CLI_SERVER_WORKERS=4 php -S localhost:8888 -t .wp-test/wordpress > /tmp/php-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -s -o /dev/null localhost:8888 && break; sleep 1; done
+
+      - name: Activate theme, plugins and fixture content
+        run: |
+          WP="php .wp-test/.cache/wp-cli-$(grep ^WPCLI_VERSION tests/env/versions.env | cut -d= -f2).phar --path=.wp-test/wordpress"
+          # 一次性測試帳號密碼，只存在這個 runner 上
+          PASS="ci-$(openssl rand -hex 12)"
+          echo "::add-mask::$PASS"
+          echo "WP_ADMIN_PASS=$PASS" >> "$GITHUB_ENV"
+          $WP user update admin --user_pass="$PASS" --quiet
+          $WP theme activate futheme
+          $WP plugin install contact-form-7 --version="$CF7_VERSION" --activate --quiet
+          $WP plugin install wordpress-seo --version="$YOAST_VERSION" --activate --quiet
+          $WP post create --post_type=page --post_status=publish --post_title="Components fixture" \
+            --post_name=components-fixture --post_content="$(cat tests/fixtures/components.html)" --porcelain > /tmp/fixture-id
+          $WP post create --post_type=page --post_status=publish --post_title="Layouts fixture" \
+            --post_name=layouts-fixture --post_content="$(cat tests/fixtures/layouts.html)" --porcelain > /tmp/layouts-id
+          FORM=$($WP post list --post_type=wpcf7_contact_form --field=ID | head -1)
+          $WP post create --post_type=page --post_status=publish --post_title="Plugin fixture" --post_name=plugin-fixture \
+            --post_content="<!-- wp:shortcode -->[contact-form-7 id=\"$FORM\"]<!-- /wp:shortcode -->" --quiet
+          $WP comment create --comment_post_ID=1 --comment_content="CI comment." --comment_author="CI" --comment_approved=1 --quiet
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.63.0
+          npx playwright install --with-deps "$FUTHEME_BROWSER"
+
+      - name: Front end smoke test
+        run: |
+          mkdir -p /tmp/shots
+          node tests/tools/smoke-browser.js /tmp/shots | tee /tmp/smoke.log
+          grep -q '^errors: none' /tmp/smoke.log
+
+      - name: Component states
+        run: node tests/tools/components.js /components-fixture/ /hello-world/ /tmp/shots
+
+      - name: Plugin compatibility (Contact Form 7, Yoast SEO)
+        run: node tests/tools/plugins.js /plugin-fixture/ /tmp/shots
+
+      - name: Editor block validity
+        # 編輯器只在 chromium 檢查一次：區塊合法性與瀏覽器無關
+        if: matrix.browser == 'chromium'
+        run: |
+          node tests/tools/editor-validity.js "$WP_ADMIN_PASS" "$(cat /tmp/fixture-id)" "$(cat /tmp/layouts-id)" | tee /tmp/validity.log
+          ! grep -q INVALID /tmp/validity.log
+
+      - name: PHP errors
+        if: always()
+        run: |
+          LOG=.wp-test/wordpress/wp-content/debug.log
+          if [ -s "$LOG" ]; then cat "$LOG"; exit 1; fi
+
+      - name: Screenshots
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: screenshots-${{ matrix.browser }}
+          path: /tmp/shots
+          retention-days: 7

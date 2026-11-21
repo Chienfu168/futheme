@@ -1,6 +1,6 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: FuTheme 0.2.0\n"
+"Project-Id-Version: FuTheme 0.6.1\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,3 +140,192 @@ msgstr "警告"
 msgctxt "Color name"
 msgid "Danger"
 msgstr "錯誤"
+
+msgctxt "Pattern title"
+msgid "Contact section"
+msgstr "聯絡區塊"
+
+msgctxt "Pattern description"
+msgid "Primary-colour call to action with contact details and a button. Replace the sample details with your own; the theme does not include a form or store any data."
+msgstr "主色底的聯絡區塊，含聯絡方式與按鈕。請換成自己的聯絡資料；佈景不含表單，也不儲存任何資料。"
+
+msgid "Get in touch"
+msgstr "與我們聯絡"
+
+msgid "Tell visitors how to reach you and when to expect a reply."
+msgstr "告訴訪客怎麼聯絡你，以及多久會回覆。"
+
+msgid "Phone"
+msgstr "電話"
+
+msgid "Add your phone number"
+msgstr "填入電話號碼"
+
+msgid "Email"
+msgstr "電子郵件"
+
+msgid "Add your email address"
+msgstr "填入電子郵件"
+
+msgid "Address"
+msgstr "地址"
+
+msgid "Add your address or office hours"
+msgstr "填入地址或服務時間"
+
+msgid "Contact us"
+msgstr "聯絡我們"
+
+msgctxt "Pattern title"
+msgid "Comments"
+msgstr "留言"
+
+msgctxt "Pattern description"
+msgid "Comment list and native comment form. No avatars, so no external image requests."
+msgstr "留言列表與原生留言表單。不顯示大頭貼，不向外部載入圖片。"
+
+msgid "Comments"
+msgstr "留言"
+
+msgctxt "Pattern title"
+msgid "Service cards"
+msgstr "服務卡片"
+
+msgctxt "Pattern description"
+msgid "Section heading with three service cards in a responsive grid. Replace the sample text with your own services."
+msgstr "區塊標題加三張服務卡片，自動依螢幕寬度換欄。請把範例文字換成自己的服務。"
+
+msgid "Our services"
+msgstr "我們的服務"
+
+msgid "A short sentence that explains what you offer and who it is for."
+msgstr "用一句話說明你提供什麼服務、服務哪些人。"
+
+msgid "First service"
+msgstr "第一項服務"
+
+msgid "Describe the first service in one or two sentences."
+msgstr "用一兩句話說明第一項服務。"
+
+msgid "Second service"
+msgstr "第二項服務"
+
+msgid "Describe the second service in one or two sentences."
+msgstr "用一兩句話說明第二項服務。"
+
+msgid "Third service"
+msgstr "第三項服務"
+
+msgid "Describe the third service in one or two sentences."
+msgstr "用一兩句話說明第三項服務。"
+
+msgctxt "Pattern title"
+msgid "Banner: business"
+msgstr "橫幅：商務幾何"
+
+msgctxt "Pattern description"
+msgid "Geometric panels and a rising chart. Suits companies, consulting and finance. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr "幾何面板與上升圖表。適合企業、顧問、金融。佈景內建灰階圖，會疊上目前配色的主色；隨時可以換成自己的圖片。"
+
+msgctxt "Pattern title"
+msgid "Banner: city"
+msgstr "橫幅：城市建築"
+
+msgctxt "Pattern description"
+msgid "City skyline. Suits urban renewal, real estate and construction. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr "城市天際線。適合都更、不動產、建設。佈景內建灰階圖，會疊上目前配色的主色；隨時可以換成自己的圖片。"
+
+msgctxt "Pattern title"
+msgid "Banner: community"
+msgstr "橫幅：社區人文"
+
+msgctxt "Pattern description"
+msgid "Row houses and trees. Suits non-profits, social services and associations. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr "街屋與行道樹。適合公益、社福、協會。佈景內建灰階圖，會疊上目前配色的主色；隨時可以換成自己的圖片。"
+
+msgctxt "Pattern title"
+msgid "Banner: culture"
+msgstr "橫幅：文化典雅"
+
+msgctxt "Pattern description"
+msgid "Arcade and lattice windows. Suits arts, religious and traditional businesses. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr "拱廊與窗花。適合藝文、宗教與傳統產業。佈景內建灰階圖，會疊上目前配色的主色；隨時可以換成自己的圖片。"
+
+msgctxt "Pattern title"
+msgid "Banner: nature"
+msgstr "橫幅：自然綠意"
+
+msgctxt "Pattern description"
+msgid "Hills and trees. Suits education, environment and agriculture. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr "山丘與樹林。適合教育、環保、農業。佈景內建灰階圖，會疊上目前配色的主色；隨時可以換成自己的圖片。"
+
+msgctxt "Pattern title"
+msgid "Banner: technology"
+msgstr "橫幅：科技線條"
+
+msgctxt "Pattern description"
+msgid "Grid and connected nodes. Suits IT and start-ups. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr "網格與連線節點。適合資訊業、新創。佈景內建灰階圖，會疊上目前配色的主色；隨時可以換成自己的圖片。"
+
+msgctxt "Pattern title"
+msgid "Footer: three columns"
+msgstr "頁尾：三欄"
+
+msgctxt "Pattern description"
+msgid "Site title, menu and contact details in three columns, with copyright and theme credit."
+msgstr "網站名稱、選單與聯絡方式三欄，加版權與佈景署名。"
+
+msgid "Theme design: %s"
+msgstr "佈景設計：%s"
+
+msgid "Links"
+msgstr "連結"
+
+msgid "Contact"
+msgstr "聯絡方式"
+
+msgctxt "Pattern title"
+msgid "Footer: with partner link"
+msgstr "頁尾：含推廣連結"
+
+msgctxt "Pattern description"
+msgid "Simple footer whose credit line also links to the partner site ur-promoter.com."
+msgstr "簡潔頁尾，署名列另外連到推廣網站 ur-promoter.com。"
+
+msgid "Theme design: %1$s · Urban renewal resources: %2$s"
+msgstr "佈景設計：%1$s · 都更推廣：%2$s"
+
+msgctxt "Pattern title"
+msgid "Footer: simple"
+msgstr "頁尾：簡潔"
+
+msgctxt "Pattern description"
+msgid "Site title and tagline, menu, copyright and theme credit."
+msgstr "網站名稱與副標題、選單、版權與佈景署名。"
+
+msgctxt "Pattern title"
+msgid "Header: centered"
+msgstr "頁首：置中"
+
+msgctxt "Pattern description"
+msgid "Logo and site title centered, menu below. Suits culture, education and non-profit sites."
+msgstr "標誌與網站名稱置中、選單在下方。適合藝文、教育與公益網站。"
+
+msgctxt "Pattern title"
+msgid "Header: with button"
+msgstr "頁首：含按鈕"
+
+msgctxt "Pattern description"
+msgid "Menu plus a call-to-action button. Suits business and service sites; change the button link to your contact page."
+msgstr "選單加一個行動按鈕。適合企業與服務業網站；請把按鈕連結改成你的聯絡頁。"
+
+msgctxt "Pattern title"
+msgid "Header: standard"
+msgstr "頁首：標準"
+
+msgctxt "Pattern description"
+msgid "Logo and site title on the left, menu on the right."
+msgstr "標誌與網站名稱在左、選單在右。"
+
+msgid "The FuTheme update file did not match its checksum and was not installed."
+msgstr "FuTheme 更新檔的 SHA-256 檢查碼不符，已停止安裝。"

@@ -17,15 +17,16 @@
 - [x] 建立可重現隔離環境，鎖定 WordPress／PHP／資料庫與瀏覽器版本（2026-11-12，[tests/env](../tests/env/setup.sh)；資料庫為 SQLite，MySQL 留待 M2 副本）。
 - [x] 建立 style.css、theme.json v3、最少 PHP 與模板；正確加入 text domain、跳至內容與原生 Navigation（2026-11-12，[報告](../tests/reports/2026-11-12-m1-core.md)）。
 - [x] 從 Token 產生十套 styles JSON，版本 schema 驗證，檢查 slug 一致與生成結果可重現（2026-11-12，`build_styles.py`、`validate_theme_json.py`）。
-- [ ] 實作頁首／頁尾、指定模板與三種 Patterns；前台不載入示範內容或業務邏輯。
-      （2026-11-12：頁首、頁尾與 8 個模板已完成並實測；2026-11-15：hero Pattern 完成，模板改為橫幅＋卡片版面；服務卡片、聯絡兩種 Pattern 未做）
+- [x] 實作頁首／頁尾、指定模板與三種 Patterns；前台不載入示範內容或業務邏輯。
+      （2026-11-12：頁首、頁尾與 8 個模板；2026-11-15：hero；2026-11-20：服務卡片、聯絡 Pattern 與單篇留言區，見 [報告](../tests/reports/2026-11-20-m1-components.md)）
 - [ ] 版型範圍（2026-11-10 確認）：頁首、頁尾選單、首頁、一般頁面、多文章頁面（index／archive／search）、單篇文章。
-- [x] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅（2026-11-15，0.2.0，見 [報告](../tests/reports/2026-11-15-visual.md)；圖片效能的實測待效能比較）。圖片由各站後台設定，**不寫死在佈景裡**；
+- [x] 橫幅：首頁大橫幅與單篇／單頁的頁首橫幅（2026-11-15，0.2.0，見 [報告](../tests/reports/2026-11-15-visual.md)；圖片效能的實測待效能比較）。圖片由各站後台設定（2026-11-16 本人要求加預設圖：未設定時用佈景自帶灰階抽象城市圖＋主色遮罩，見 [報告](../tests/reports/2026-11-16-banner-footer.md)）；
       須處理未設定時的 fallback、裁切與手機顯示、橫幅上文字在十套配色下的對比，以及圖片效能。
-- [ ] 實作按鈕、卡片、表單契約與 fixture，含 hover、focus、disabled、error；保留原生表單語意。
+- [x] 實作按鈕、卡片、表單契約與 fixture，含 hover、focus、disabled、error；保留原生表單語意（2026-11-20，[fixture](../tests/fixtures/components.html)、[components.js](../tests/tools/components.js)，十套配色通過）。
 - [ ] 驗證編輯器與前台一致、手動改色與字型、儲存、切換、重設及 DB 覆寫行為。
       （2026-11-15：編輯器內切換＋儲存通過，見 [報告](../tests/reports/2026-11-15-merge-editor.md)；手動改色字型、編輯器重設、逐項比對未測）
 - [ ] 驗證 RWD、鍵盤、對比及錯誤狀態；以 PHP lint、WPCS、JSON/schema 與 WordPress 安裝驗證建立 CI。
+      （2026-11-20：本機 360／1280、鍵盤焦點、元件對比與錯誤狀態通過；GitHub CI run #5 兩個 job 全部通過）
 - [ ] 打包 Core 測試 ZIP，在乾淨站安裝、啟用、更新及回退，保存證據。
       （2026-11-13：應使用者要求先出 `0.1.0-test`，上傳安裝、啟用、同版本取代、回退通過，見 [報告](../tests/reports/2026-11-13-m1-zip-install.md)；M1 其他項目完成後需重新打包驗證）
 
@@ -33,7 +34,7 @@
 
 ## M2 雙站與外掛
 
-第一個採用網站：**fudawang.com**（2026-11-15 本人決定，見 [採用狀態](adoption.md)）。UR 是否換 FuTheme 仍未決，M2 不假設 UR 會用。
+第一個採用網站：**fudawang.com**（2026-11-15 本人決定）。UR 是否換 FuTheme 仍未決，M2 不假設 UR 會用。
 
 - [ ] 盤點 fudawang.com：現用佈景、外掛、選單／小工具／額外 CSS、首頁內容、主機 PHP 與資料庫版本。
 - [ ] 取得 fudawang 去識別隔離副本，在副本上換 FuTheme，盤點移轉風險；不碰正式站。
@@ -50,6 +51,7 @@
 - [ ] 加入第二種外掛整合驗證，再宣稱完整版本外掛驗收完成。
 - [ ] 完成更新／回復演練、操作文件及已知限制。
 - [ ] 建立遠端與 Release 流程，產出版本 ZIP、hash、變更說明並保留上一版。
+      （2026-11-20：0.6.0 線上更新完成——main 分支 `update.json`＋SHA-256，見 [報告](../tests/reports/2026-11-20-060-online-update.md)；變更說明、保留上一版 ZIP、資料庫覆寫偵測未做）
 - [ ] 自訂配色匯入匯出、差異比較、額外元件與網站子佈景另排後續，不阻塞首版。
 
 正式站部署不屬本次 M0，也不因候選版本完成而自動執行。

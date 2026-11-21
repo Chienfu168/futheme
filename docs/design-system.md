@@ -45,6 +45,41 @@
 | `.fu-card` | 文章卡片：surface 底、0.375rem 圓角、等高；沒有精選圖片時上方顯示 16:9 淡主色區塊（`color-mix`，純裝飾） | 與上方卡片契約一致，但**未加 border 邊框**：surface 底已足以區隔，深色 border 在卡片格線上過重；Bridge 的 `.fu-card` 是否加邊框另議 |
 | `.fu-site-header` | 頁首，上緣 4px 主色線 | 佈景內部 |
 | `.fu-site-footer` | 頁尾，secondary 底、primary-contrast 文字與連結 | 佈景內部 |
+| `.fu-banner--default`（0.3.0） | 橫幅未設定圖片時由 PHP 加上：插入佈景自帶灰階圖 `assets/images/banner-*.webp`，遮罩改為 80% primary | 佈景內部；可用 `futheme_default_banner` 濾鏡關閉 |
+| `.fu-site-footer__bottom`（0.3.0） | 頁尾底列：上緣 30% primary-contrast 細線，放版權 | 佈景內部 |
+| `.fu-copyright`（0.3.0） | 段落類別：前台把「© 年份」換成今年 | 佈景內部 |
+| `.fu-services`（0.4.0） | 服務卡片 Pattern 外層；內含三張 `.fu-card`（surface 底、1px border 邊框），寬版最多三欄、最小欄寬 16rem | 佈景內部 |
+| `.fu-contact`（0.4.0） | 聯絡 Pattern：primary 底、primary-contrast 字；屬深色區塊，焦點框反轉 | 佈景內部 |
+| `.fu-comments`（0.4.0） | 單篇留言區：留言列表與原生留言表單，不顯示大頭貼（不向 Gravatar 發請求） | 佈景內部 |
+| `.fu-site-header--centered`、`.fu-site-header--cta`（0.5.0） | 置中頁首、含行動按鈕的頁首（標準款只有 `.fu-site-header`） | 佈景內部 |
+| `.fu-credit`（0.5.0） | 頁尾署名段落 | 佈景內部 |
+| `.fu-field-error`（0.4.0） | 欄位錯誤訊息：danger 文字＋「!」圓形圖示（裝飾），以 `aria-describedby` 連到欄位；欄位本身加 `aria-invalid="true"` | **公開**：外掛表單可用此類別取得一致錯誤樣式；改名需記錄相容性 |
+
+### 版型款式（0.5.0）
+
+| 種類 | 款式（Pattern slug） |
+| --- | --- |
+| 頁首 | `futheme/header`（標準，預設）、`header-centered`、`header-cta` |
+| 頁尾 | `futheme/footer`（簡潔＋署名，預設）、`footer-columns`、`footer-promo`（另連 ur-promoter.com） |
+| 橫幅 | `futheme/hero`（未設圖→預設圖）、`banner-city`、`banner-nature`、`banner-business`、`banner-community`、`banner-tech`、`banner-culture` |
+
+濾鏡 `futheme_default_banner`：回傳 `city`／`nature`／`business`／`community`／`tech`／`culture` 換預設橫幅圖，回傳 `false` 關閉。屬**公開介面**，改名需記錄相容性。
+內建圖亮度固定 50～165、疊 80% 主色遮罩，文字最低 4.88:1；換成自己的照片時，對比由站長負責（遮罩仍在，可調深）。
+
+### 元件狀態（0.4.0 實作，2026-11-20 十套配色實測）
+
+| 元件 | 一般 | hover | focus-visible | disabled | error |
+| --- | --- | --- | --- | --- | --- |
+| 按鈕 | primary 底／primary-contrast 字，高 ≥44px | 同色＋底線 | 2px focus 實線＋2px base 間隔；深色區塊內反轉為白框 | surface 底／muted 字／border 邊框，`not-allowed`，不用 opacity | — |
+| 外框按鈕（`is-style-outline`） | 透明底、primary 字與 2px 邊框 | 底線 | 同上 | 同上 | — |
+| 輸入框／下拉／多行 | base 底／contrast 字／1px border，高 ≥44px | — | 同上 | 同上 | danger 邊框（inset 陰影加粗，不移動版面）＋ `.fu-field-error` 文字 |
+| 卡片 | surface 底／contrast 字／1px border | — | 內部連結各自 focus | — | — |
+
+🚩 **slug `border` 的類別衝突**（0.4.0 修正）：WordPress 對任何設了邊框色的區塊加 `has-border-color` 類別，
+而色盤 slug `border` 產生的文字色類別也叫 `has-border-color`（且帶 `!important`），
+結果有邊框的區塊文字被染成 border 色（對比只有 3.86:1）。佈景加了
+`.has-border-color:not(.has-text-color){color:inherit!important}` 修正；使用者明確選「Border」當文字色時仍有效。
+slug 不改名（見 [色彩 slug 契約](color-slug-contract.md)）。
 
 深色區塊（`.fu-banner`、`.fu-site-footer`）的焦點框反轉為白色外框＋focus 色內圈，白色對主色最低 5.59:1、對 secondary 最低 7.39:1。
 
