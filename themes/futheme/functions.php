@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 require_once __DIR__ . '/inc/updater.php';
 
 if ( ! defined( 'FUTHEME_VERSION' ) ) {
-	define( 'FUTHEME_VERSION', '0.6.1' );
+	define( 'FUTHEME_VERSION', '1.0.0' );
 }
 
 /**

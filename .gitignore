@@ -9,9 +9,9 @@ dist/
 build/
 .wp-test/
 .wp-test-*/
-# 測試 ZIP 例外提交，供 GitHub 下載（正式版改走 Release，M3）
+# 佈景 ZIP 例外提交，供 GitHub 下載與線上更新（main 分支的 update.json 指向這裡）
 !dist/
 dist/*
-!dist/futheme-*-test.zip
-!dist/futheme-*-test.sha256
-!dist/futheme-*-test.files.txt
+!dist/futheme-*.zip
+!dist/futheme-*.sha256
+!dist/futheme-*.files.txt
