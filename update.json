@@ -1,7 +1,7 @@
 {
-  "version": "0.6.1",
-  "package": "https://raw.githubusercontent.com/Chienfu168/futheme/main/dist/futheme-0.6.1-test.zip",
-  "sha256": "8f767ad6635ab67c0678dfc78963ddd693bc6080a071db88ce5e02a65b25901a",
+  "version": "1.0.0",
+  "package": "https://raw.githubusercontent.com/Chienfu168/futheme/main/dist/futheme-1.0.0.zip",
+  "sha256": "5650524397fea76048ea5558b6cb298f6cf8356ce77eb3b3521d8ba6fc85a9a7",
   "url": "https://github.com/Chienfu168/futheme",
   "requires": "7.1",
   "requires_php": "8.3",

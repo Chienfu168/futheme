@@ -57,8 +57,12 @@ def main():
     if not readme_version or readme_version.group(1) != theme_version:
         errors.append(f"README 佈景版本 {readme_version and readme_version.group(1)} ≠ style.css {theme_version}")
     # README 的直接下載連結必須指向目前版本的 ZIP
-    if f"dist/futheme-{theme_version}-test.zip>" not in (ROOT / "README.md").read_text():
-        errors.append(f"README 直接下載連結不是 futheme-{theme_version}-test.zip")
+    # 直接下載連結要指向 update.json 所列的 ZIP（正式版無後綴，測試版為 -test）
+    release_zip = json.loads((ROOT / "update.json").read_text())["package"].rsplit("/", 1)[-1] if (ROOT / "update.json").exists() else f"futheme-{theme_version}.zip"
+    if not release_zip.startswith(f"futheme-{theme_version}"):
+        errors.append(f"update.json 指向 {release_zip}，與版本 {theme_version} 不符")
+    if f"dist/{release_zip}>" not in (ROOT / "README.md").read_text():
+        errors.append(f"README 直接下載連結不是 {release_zip}")
     # 線上更新版本檔必須與目前版本、實際 ZIP 雜湊一致，否則網站會下載到錯的檔或驗證失敗
     import hashlib
     manifest_path = ROOT / "update.json"
