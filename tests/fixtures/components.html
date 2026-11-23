@@ -1,0 +1,32 @@
+<!-- wp:heading -->
+<h2 class="wp-block-heading">Buttons</h2>
+<!-- /wp:heading -->
+
+<!-- wp:buttons -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"fx-btn-default"} -->
+<div class="wp-block-button fx-btn-default"><a class="wp-block-button__link wp-element-button" href="#buttons">Default button</a></div>
+<!-- /wp:button -->
+
+<!-- wp:button {"className":"is-style-outline fx-btn-outline"} -->
+<div class="wp-block-button is-style-outline fx-btn-outline"><a class="wp-block-button__link wp-element-button" href="#buttons">Outline button</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+
+<!-- wp:html -->
+<form class="fx-form" action="#" onsubmit="return false" novalidate>
+<p><label for="fx-name">Name</label><br><input id="fx-name" type="text" autocomplete="name"></p>
+<p><label for="fx-email">Email</label><br><input id="fx-email" type="email" aria-invalid="true" aria-describedby="fx-email-error" value="not-an-email"></p>
+<p id="fx-email-error" class="fu-field-error">Enter an email address like name@example.com.</p>
+<p><label for="fx-disabled">Disabled field</label><br><input id="fx-disabled" type="text" value="Read only value" disabled></p>
+<p><label for="fx-topic">Topic</label><br><select id="fx-topic"><option>General</option><option>Other</option></select></p>
+<p><label for="fx-msg">Message</label><br><textarea id="fx-msg" rows="3"></textarea></p>
+<p><input id="fx-agree" type="checkbox"> <label for="fx-agree">I agree</label></p>
+<p><button type="submit" class="wp-element-button fx-submit">Send</button> <button type="button" class="wp-element-button fx-submit-disabled" disabled>Disabled</button></p>
+</form>
+<!-- /wp:html -->
+
+<!-- wp:search {"label":"Search","buttonText":"Search","className":"fx-search"} /-->
+
+<!-- wp:pattern {"slug":"futheme/services"} /-->
+
+<!-- wp:pattern {"slug":"futheme/contact"} /-->

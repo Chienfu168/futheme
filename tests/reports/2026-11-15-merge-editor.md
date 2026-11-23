@@ -6,7 +6,7 @@
 
 | 來自 main | 處理 |
 | --- | --- |
-| docs/adoption.md、color-slug-contract.md、deployment.md 更新機制 | 全部保留；adoption 記下第一個採用者 fudawang；移除連到 repo 外的連結 |
+| 採用狀態文件（2026-11-20 已刪除）、color-slug-contract.md、deployment.md 更新機制 | 全部保留；adoption 記下第一個採用者 fudawang；移除連到 repo 外的連結 |
 | 佈景檔（theme.json、styles、頁首頁尾、index） | 以已實測版本為準（main 版未經 WordPress 驗證） |
 | functions.php 的 `FUTHEME_CORE_VERSION`、post-thumbnails、strict_types | 補入 |
 | style.css 的 Author、Tags | 補入；`Requires PHP` 維持 8.3（只測過 8.3） |

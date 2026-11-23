@@ -1,22 +1,22 @@
-# Copyright (C) 2026 FuDaWang
+# Copyright (C) 2026 福大資訊
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: FuTheme 0.1.0\n"
-"Report-Msgid-Bugs-To: https://github.com/Chienfu168/futheme\n"
-"Last-Translator: FuTheme\n"
-"Language-Team: FuTheme\n"
+"Project-Id-Version: FuTheme 0.6.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/futheme\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2026-11-15T10:46:38+00:00\n"
+"POT-Creation-Date: 2026-11-20T04:28:02+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.12.0\n"
 "X-Domain: futheme\n"
 
 #. Theme Name of the theme
 #: style.css
-#: functions.php:34
+#: functions.php:37
 msgid "FuTheme"
 msgstr ""
 
@@ -32,12 +32,217 @@ msgstr ""
 
 #. Author of the theme
 #: style.css
-msgid "FuDaWang"
+msgid "福大資訊"
 msgstr ""
 
 #. Author URI of the theme
 #: style.css
 msgid "https://www.fudawang.com"
+msgstr ""
+
+#: inc/updater.php:120
+msgid "The FuTheme update file did not match its checksum and was not installed."
+msgstr ""
+
+#: patterns/banner-business.php
+msgctxt "Pattern title"
+msgid "Banner: business"
+msgstr ""
+
+#: patterns/banner-business.php
+msgctxt "Pattern description"
+msgid "Geometric panels and a rising chart. Suits companies, consulting and finance. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr ""
+
+#: patterns/banner-business.php:21
+#: patterns/banner-city.php:21
+#: patterns/banner-community.php:21
+#: patterns/banner-culture.php:21
+#: patterns/banner-nature.php:21
+#: patterns/banner-tech.php:21
+#: patterns/hero.php:20
+msgid "Read the latest news"
+msgstr ""
+
+#: patterns/banner-city.php
+msgctxt "Pattern title"
+msgid "Banner: city"
+msgstr ""
+
+#: patterns/banner-city.php
+msgctxt "Pattern description"
+msgid "City skyline. Suits urban renewal, real estate and construction. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr ""
+
+#: patterns/banner-community.php
+msgctxt "Pattern title"
+msgid "Banner: community"
+msgstr ""
+
+#: patterns/banner-community.php
+msgctxt "Pattern description"
+msgid "Row houses and trees. Suits non-profits, social services and associations. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr ""
+
+#: patterns/banner-culture.php
+msgctxt "Pattern title"
+msgid "Banner: culture"
+msgstr ""
+
+#: patterns/banner-culture.php
+msgctxt "Pattern description"
+msgid "Arcade and lattice windows. Suits arts, religious and traditional businesses. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr ""
+
+#: patterns/banner-nature.php
+msgctxt "Pattern title"
+msgid "Banner: nature"
+msgstr ""
+
+#: patterns/banner-nature.php
+msgctxt "Pattern description"
+msgid "Hills and trees. Suits education, environment and agriculture. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr ""
+
+#: patterns/banner-tech.php
+msgctxt "Pattern title"
+msgid "Banner: technology"
+msgstr ""
+
+#: patterns/banner-tech.php
+msgctxt "Pattern description"
+msgid "Grid and connected nodes. Suits IT and start-ups. Built-in greyscale image tinted by the current palette's primary colour; replace it with your own image any time."
+msgstr ""
+
+#: patterns/contact.php
+msgctxt "Pattern title"
+msgid "Contact section"
+msgstr ""
+
+#: patterns/contact.php
+msgctxt "Pattern description"
+msgid "Primary-colour call to action with contact details and a button. Replace the sample details with your own; the theme does not include a form or store any data."
+msgstr ""
+
+#: patterns/contact.php:16
+msgid "Get in touch"
+msgstr ""
+
+#: patterns/contact.php:20
+msgid "Tell visitors how to reach you and when to expect a reply."
+msgstr ""
+
+#: patterns/contact.php:29
+msgid "Phone"
+msgstr ""
+
+#: patterns/contact.php:29
+#: patterns/footer-columns.php:37
+msgid "Add your phone number"
+msgstr ""
+
+#: patterns/contact.php:30
+msgid "Email"
+msgstr ""
+
+#: patterns/contact.php:30
+#: patterns/footer-columns.php:41
+msgid "Add your email address"
+msgstr ""
+
+#: patterns/contact.php:31
+msgid "Address"
+msgstr ""
+
+#: patterns/contact.php:31
+#: patterns/footer-columns.php:45
+msgid "Add your address or office hours"
+msgstr ""
+
+#: patterns/contact.php:52
+#: patterns/header-cta.php:26
+msgid "Contact us"
+msgstr ""
+
+#: patterns/footer-columns.php
+msgctxt "Pattern title"
+msgid "Footer: three columns"
+msgstr ""
+
+#: patterns/footer-columns.php
+msgctxt "Pattern description"
+msgid "Site title, menu and contact details in three columns, with copyright and theme credit."
+msgstr ""
+
+#. translators: %s: theme author name, linked to the author's website.
+#: patterns/footer-columns.php:13
+#: patterns/footer.php:13
+#, php-format
+msgid "Theme design: %s"
+msgstr ""
+
+#: patterns/footer-columns.php:25
+msgid "Links"
+msgstr ""
+
+#: patterns/footer-columns.php:33
+msgid "Contact"
+msgstr ""
+
+#: patterns/footer-promo.php
+msgctxt "Pattern title"
+msgid "Footer: with partner link"
+msgstr ""
+
+#: patterns/footer-promo.php
+msgctxt "Pattern description"
+msgid "Simple footer whose credit line also links to the partner site ur-promoter.com."
+msgstr ""
+
+#. translators: 1: theme author name, linked to the author's website. 2: partner website, linked.
+#: patterns/footer-promo.php:14
+#, php-format
+msgid "Theme design: %1$s · Urban renewal resources: %2$s"
+msgstr ""
+
+#: patterns/footer.php
+msgctxt "Pattern title"
+msgid "Footer: simple"
+msgstr ""
+
+#: patterns/footer.php
+msgctxt "Pattern description"
+msgid "Site title and tagline, menu, copyright and theme credit."
+msgstr ""
+
+#: patterns/header-centered.php
+msgctxt "Pattern title"
+msgid "Header: centered"
+msgstr ""
+
+#: patterns/header-centered.php
+msgctxt "Pattern description"
+msgid "Logo and site title centered, menu below. Suits culture, education and non-profit sites."
+msgstr ""
+
+#: patterns/header-cta.php
+msgctxt "Pattern title"
+msgid "Header: with button"
+msgstr ""
+
+#: patterns/header-cta.php
+msgctxt "Pattern description"
+msgid "Menu plus a call-to-action button. Suits business and service sites; change the button link to your contact page."
+msgstr ""
+
+#: patterns/header.php
+msgctxt "Pattern title"
+msgid "Header: standard"
+msgstr ""
+
+#: patterns/header.php
+msgctxt "Pattern description"
+msgid "Logo and site title on the left, menu on the right."
 msgstr ""
 
 #: patterns/hero.php
@@ -48,10 +253,6 @@ msgstr ""
 #: patterns/hero.php
 msgctxt "Pattern description"
 msgid "Full-width banner with site title and tagline. Without an image it shows the primary colour; with an image a dark overlay keeps the text readable."
-msgstr ""
-
-#: patterns/hero.php:20
-msgid "Read the latest news"
 msgstr ""
 
 #: patterns/hidden-404.php
@@ -65,6 +266,20 @@ msgstr ""
 
 #: patterns/hidden-404.php:16
 msgid "The page you are looking for may have been moved or removed. Try searching instead."
+msgstr ""
+
+#: patterns/hidden-comments.php
+msgctxt "Pattern title"
+msgid "Comments"
+msgstr ""
+
+#: patterns/hidden-comments.php
+msgctxt "Pattern description"
+msgid "Comment list and native comment form. No avatars, so no external image requests."
+msgstr ""
+
+#: patterns/hidden-comments.php:14
+msgid "Comments"
 msgstr ""
 
 #: patterns/hidden-front-latest.php
@@ -98,4 +313,46 @@ msgstr ""
 #: patterns/hidden-posts-title.php
 msgctxt "Pattern title"
 msgid "Posts page title"
+msgstr ""
+
+#: patterns/services.php
+msgctxt "Pattern title"
+msgid "Service cards"
+msgstr ""
+
+#: patterns/services.php
+msgctxt "Pattern description"
+msgid "Section heading with three service cards in a responsive grid. Replace the sample text with your own services."
+msgstr ""
+
+#: patterns/services.php:16
+msgid "Our services"
+msgstr ""
+
+#: patterns/services.php:20
+msgid "A short sentence that explains what you offer and who it is for."
+msgstr ""
+
+#: patterns/services.php:29
+msgid "First service"
+msgstr ""
+
+#: patterns/services.php:29
+msgid "Describe the first service in one or two sentences."
+msgstr ""
+
+#: patterns/services.php:30
+msgid "Second service"
+msgstr ""
+
+#: patterns/services.php:30
+msgid "Describe the second service in one or two sentences."
+msgstr ""
+
+#: patterns/services.php:31
+msgid "Third service"
+msgstr ""
+
+#: patterns/services.php:31
+msgid "Describe the third service in one or two sentences."
 msgstr ""
