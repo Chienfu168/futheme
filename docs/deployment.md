@@ -36,8 +36,9 @@
 
 1. 在工作分支改版號、`python3 scripts/package_theme.py test`：產生 ZIP，並同時改寫 `update.json`（網址固定指向 main 的 `dist/`）。
 2. `validate_spec.py`（CI 也會跑）檢查 `update.json` 的版本、網址與 ZIP 雜湊一致。
-3. 開 PR、CI 通過、本人合併進 main → 各站在 12 小時內看到更新。**工作分支上的版本不會推給任何網站。**
-4. 第一次仍要手動上傳一次 0.6.0 以上的版本（之前的版本沒有更新程式）。
+3. 在 [CHANGELOG.md](../CHANGELOG.md) 加上該版本段落（`validate_spec.py` 會檢查）。
+4. 開 PR、CI 通過、本人合併進 main → 各站在 12 小時內看到更新；[release.yml](../.github/workflows/release.yml) 同時自動建立 GitHub Release `v<版本>`，附 ZIP、SHA-256 與 CHANGELOG 段落（已存在則跳過）。**工作分支上的版本不會推給任何網站。**
+5. 第一次仍要手動上傳一次 0.6.0 以上的版本（之前的版本沒有更新程式）。
 
 ### 🚩 仍然存在的難處
 

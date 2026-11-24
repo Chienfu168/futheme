@@ -8,6 +8,7 @@
 ## 下載安裝
 
 > **直接下載可安裝的 ZIP**：<https://github.com/Chienfu168/futheme/raw/main/dist/futheme-1.0.0.zip>
+> 也可以到 [Releases](https://github.com/Chienfu168/futheme/releases) 下載各版本，更新內容見 [CHANGELOG](CHANGELOG.md)。
 > 不要用綠色「Code → Download ZIP」：那是整個專案，WordPress 會顯示「缺少 style.css 樣式表」而安裝失敗。
 
 1. 後台「外觀 → 佈景主題 → 安裝佈景主題 → 上傳佈景主題」，選上面下載的 ZIP。

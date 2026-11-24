@@ -78,6 +78,9 @@ def main():
             errors.append(f"update.json 指向的 {zip_name} 不在 dist/")
         elif hashlib.sha256(zip_path.read_bytes()).hexdigest() != manifest.get("sha256"):
             errors.append(f"update.json 的 SHA-256 與 dist/{zip_name} 不符")
+    # 每個版本都要有 CHANGELOG 段落：Release 說明從這裡取，缺了發布會失敗
+    if not re.search(rf"^## {re.escape(theme_version)}（", (ROOT / "CHANGELOG.md").read_text(), re.M):
+        errors.append(f"CHANGELOG.md 沒有 {theme_version} 的段落")
     if errors:
         raise SystemExit("\n".join(errors))
     print(f"PASS: 10 palettes, 13 tokens each, {checks} contrast pairs, local Markdown links. Lowest ratio: {minimum:.3f}:1 (includes 3:1 UI checks).")

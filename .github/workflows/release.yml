@@ -1,0 +1,81 @@
+# main 分支的佈景版本還沒有對應 Release 時，自動建立 Release：
+# 標籤 v<版本>、附上 update.json 所列的 ZIP 與 .sha256、說明取自 CHANGELOG.md 該版本段落。
+# 已存在就不動作（重跑或合併其他文件改動都不會重複發布）。測試版（-test）標成 pre-release。
+name: Release
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Read version
+        id: v
+        run: |
+          VERSION=$(grep -m1 '^Version:' themes/futheme/style.css | awk '{print $2}')
+          ZIP=$(python3 -c "import json;print(json.load(open('update.json'))['package'].rsplit('/',1)[-1])")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "zip=$ZIP" >> "$GITHUB_OUTPUT"
+          echo "版本 $VERSION，套件 $ZIP"
+
+      - name: Skip if release exists
+        id: exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view "v${{ steps.v.outputs.version }}" > /dev/null 2>&1; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"; echo "v${{ steps.v.outputs.version }} 已存在，不重複發布"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify package
+        if: steps.exists.outputs.skip == 'false'
+        run: |
+          test -f "dist/${{ steps.v.outputs.zip }}"
+          # 版本、update.json、ZIP 雜湊一致，README 下載連結正確
+          python3 scripts/validate_spec.py
+
+      - name: Release notes from CHANGELOG
+        if: steps.exists.outputs.skip == 'false'
+        run: |
+          V="${{ steps.v.outputs.version }}"
+          awk -v v="$V" '
+            $0 ~ "^## " v "（" { on = 1; next }
+            on && /^## / { exit }
+            on { print }
+          ' CHANGELOG.md > /tmp/notes.md
+          if [ ! -s /tmp/notes.md ]; then echo "CHANGELOG.md 沒有 $V 的段落" >&2; exit 1; fi
+          {
+            echo
+            echo '**安裝**：下載下方的 `${{ steps.v.outputs.zip }}`，在 WordPress 後台「外觀 → 佈景主題 → 安裝佈景主題 → 上傳佈景主題」上傳。'
+            echo '已安裝 0.6.0 以上的網站會在後台「控制台 → 更新」收到這一版。'
+          } >> /tmp/notes.md
+          cat /tmp/notes.md
+
+      - name: Create release
+        if: steps.exists.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          V="${{ steps.v.outputs.version }}"; ZIP="dist/${{ steps.v.outputs.zip }}"
+          PRE=""; case "$ZIP" in *-test.zip) PRE="--prerelease";; esac
+          gh release create "v$V" "$ZIP" "${ZIP%.zip}.sha256" \
+            --title "FuTheme $V" --notes-file /tmp/notes.md --target "$GITHUB_SHA" $PRE
